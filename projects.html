@@ -1,94 +1,54 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Projects — Thibaut Vacek</title>
-    <meta name="description" content="Mes projets de creative technology : installations, expériences interactives et outils.">
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Thibaut Vacek</title>
+<meta name="description" content="Thibaut Vacek — creative technologist, musician and scientist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Archivo+Black&amp;family=Krona+One&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">THIBAUT VACEK</a>
-
-            <ul class="nav-links">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="projects.html" class="active">PROJECTS</a></li>
-                <li><a href="music.html">MUSIC</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-
-        <section class="page-header">
-            <p class="subtitle">MES RÉALISATIONS</p>
-            <h1>Projects</h1>
-            <p>Une sélection de projets mêlant design, technologie et imagination.</p>
-        </section>
-
-        <section class="section projects">
-
-            <div class="project-grid">
-
-                <article class="project-card">
-                    <img
-                        src="pictures/LOGO_vSea.png"
-                        alt="Présentation du projet numéro 1"
-                        class="project-image"
-                    >
-                    <div class="project-info">
-                        <h3>Projet numéro 1</h3>
-                        <p>
-                            Une expérience créative mêlant design,
-                            technologie et imagination.
-                        </p>
-                        <!-- Remplace par la page de ce projet -->
-                        <a href="project.html">En savoir plus →</a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-image image-two"></div>
-                    <div class="project-info">
-                        <h3>Projet numéro 2</h3>
-                        <p>
-                            Un projet autour de la création visuelle
-                            et de l'expérimentation.
-                        </p>
-                        <a href="project.html">En savoir plus →</a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-image image-three"></div>
-                    <div class="project-info">
-                        <h3>Projet numéro 3</h3>
-                        <p>
-                            Une nouvelle approche pour transformer
-                            une idée en expérience.
-                        </p>
-                        <a href="project.html">En savoir plus →</a>
-                    </div>
-                </article>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-        <p>© 2026 Thibaut Vacek — Tous droits réservés.</p>
-    </footer>
-
+<body class="page-projects">
+<header class="site-header">
+  <a class="brand" href="index.html"><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>THIBAUT VACEK</span></a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav"><a href="index.html">HOME</a><a href="projects.html" class="active">PROJECTS</a><a href="music.html">MUSIC</a><a href="about.html">ABOUT</a></nav>
+</header>
+<main>
+<section class="page-head">
+  <h1 class="display-wide reveal">PROJECTS</h1>
+  <p class="page-intro reveal">A selection of work from the last few years. Installations, live shows, scientific projects and sound pieces. Click a project to open it.</p>
+</section>
+<section class="projects-grid">
+  <a class="card wide label-top reveal" href="project.html#live-session"><img src="pictures/PROJECTS/Live_plage_mic.png"><span class="card-label">LIVE SESSION</span></a>
+  <a class="card  label-bottom reveal" href="project.html#capter-l-eclosion"><img src="pictures/PROJECTS/capter_leclosion_cover.jpg"><span class="card-label">CAPTER L’ÉCLOSION</span></a>
+  <a class="card  label-top reveal" href="project.html#collaborations"><img src="pictures/PROJECTS/collaboration.jpg"><span class="card-label">COLLABORATIONS</span></a>
+  <a class="card  label-bottom-right reveal" href="project.html#plasma"><img src="pictures/PROJECTS/plasma.png"><span class="card-label">PLASMA</span></a>
+  <a class="card  label-bottom reveal" href="project.html#audio-source-separation"><img src="pictures/PROJECTS/audio_source_separation.png"><span class="card-label">AUDIO SOURCE SEPARATION</span></a>
+  <a class="card  label-bottom reveal" href="project.html#des-ordres"><img src="pictures/PROJECTS/des_ordres.png"><span class="card-label">DES ORDRES</span></a>
+  <a class="card  label-top reveal" href="project.html#em-impulse"><img src="pictures/PROJECTS/EM_impulse2.png"><span class="card-label">EM IMPULSE</span></a>
+  <a class="card  label-bottom reveal" href="project.html#variable-band-pass"><img src="pictures/PROJECTS/variable_band_pass.png"><span class="card-label">VARIABLE BAND-PASS</span></a>
+  <a class="card  label-top-right reveal" href="project.html#early-works"><img src="pictures/PROJECTS/early_works.jpg" ><span class="card-label">EARLY WORKS</span></a>
+</section>
+<div class="ticker" aria-hidden="true"><ul class="ticker-track"><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li></ul></div>
+</main>
+<footer class="site-footer">
+  <div class="footer-cta reveal">
+    <a class="btn btn-glow" href="mailto:thibaut.vacek.creations@gmail.com">CONTACT</a>
+    <a class="mail" href="mailto:thibaut.vacek.creations@gmail.com">thibaut.vacek.creations@gmail.com</a>
+  </div>
+  <div class="footer-row">
+    <span>(+64) 0432 452 546 | (+33) 07 50 95 78 22</span>
+    <img class="spiral" src="pictures/LOGO_ref.png" alt="">
+    <span>Creative Technologist</span>
+    <img class="spiral" src="pictures/LOGO_ref.png" alt="">
+    <span class="lang"><a class="on" href="#">EN</a> | <a href="#">FR</a></span>
+  </div>
+  <div class="footer-name"><small>2026</small><span class="solid">THIBAUT</span><span class="outline">VACEK</span></div>
+  <img class="footer-watermark" src="pictures/LOGO_ref.png" alt="">
+</footer>
+<script src="script.js"></script>
 </body>
-
 </html>

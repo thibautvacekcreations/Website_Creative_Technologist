@@ -1,61 +1,70 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Thibaut Vacek — Creative Technologist & Music Artist</title>
-    <meta name="description" content="Portfolio de Thibaut Vacek : projets de creative technology et musique.">
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home — Thibaut Vacek</title>
+<meta name="description" content="Thibaut Vacek — creative technologist, musician and scientist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Archivo+Black&amp;family=Krona+One&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">THIBAUT VACEK</a>
-
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">HOME</a></li>
-                <li><a href="projects.html">PROJECTS</a></li>
-                <li><a href="music.html">MUSIC</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-
-        <section class="hero">
-
-            <div class="hero-content">
-
-                <p class="subtitle">CREATIVE TECHNOLOGIST &amp; MUSIC ARTIST</p>
-
-                <h1>
-                    Je crée des expériences
-                    <span>qui marquent les esprits.</span>
-                </h1>
-
-                <p class="hero-description">
-                    Découvrez mes projets, ma musique et les idées
-                    qui me font avancer.
-                </p>
-
-                <a href="projects.html" class="button">Voir mes projets</a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-        <p>© 2026 Thibaut Vacek — Tous droits réservés.</p>
-    </footer>
-
+<body class="page-home">
+<header class="site-header">
+  <a class="brand" href="index.html"><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>THIBAUT VACEK</span></a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav"><a href="index.html" class="active">HOME</a><a href="projects.html">PROJECTS</a><a href="music.html">MUSIC</a><a href="about.html">ABOUT</a></nav>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-text">
+    <h1 class="display"><span class="solid">Thibaut</span><span class="outline">Vacek</span></h1>
+    <p class="tagline">Super short sentence<br>to catch the attention</p>
+    <a class="btn btn-glow" href="projects.html">View projects</a>
+  </div>
+  <div class="hero-img"><img src="pictures/HOME/live_plage_back.png" alt="Thibaut Vacek en live session face à la mer"></div>
+</section>
+<div class="ticker" aria-hidden="true"><ul class="ticker-track"><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li></ul></div>
+<section class="intro">
+  <p class="lead reveal">Creative technologist, je transforme les idées en expériences numériques à la croisée du design, du code et de l’innovation. Dire direct le bail science et création.</p>
+  <div class="kpis">
+    <div class="kpi reveal"><span>KPI 1</span></div>
+    <div class="kpi reveal" style="--d:120ms"><span>KPI 2</span></div>
+    <div class="kpi reveal" style="--d:240ms"><span>KPI 3</span></div>
+  </div>
+</section>
+<section class="selected">
+  <p class="eyebrow reveal">Selected work</p>
+  <h2 class="h-xl reveal"><span class="blue">Projects</span> that speak for themselves.</h2>
+  <div class="cards-row"><a class="card reveal" href="project.html#live-session" style="--d:0ms"><img src="pictures/PROJECTS/Live_plage_mic.png"><span class="card-label">LIVE SESSION</span></a><a class="card reveal" href="project.html#capter-l-eclosion" style="--d:120ms"><img src="pictures/PROJECTS/capter_leclosion_cover.jpg"><span class="card-label">CAPTER L’ÉCLOSION</span></a><a class="card reveal" href="project.html#plasma" style="--d:240ms"><img src="pictures/PROJECTS/plasma.png"><span class="card-label">PLASMA</span></a></div>
+</section>
+<section class="expertise">
+  <p class="eyebrow reveal">EXPERTISE</p>
+  <h2 class="h-xl reveal">Ways <span class="grey">I can help.</span></h2>
+  <ul class="expertise-list"><li class="reveal" style="--d:0ms"><span class="num">01</span><h3>Signal Processing</h3><p>Filtres, analyse spectrale et traitement temps réel pour le son et la recherche.</p></li><li class="reveal" style="--d:100ms"><span class="num">02</span><h3>Project Management &amp; Strategy</h3><p>Cadrer, planifier et livrer des projets complexes de l’idée à l’exploitation.</p></li><li class="reveal" style="--d:200ms"><span class="num">03</span><h3>Sound Production</h3><p>Enregistrement, mixage et direction artistique pour la scène et le disque.</p></li><li class="reveal" style="--d:300ms"><span class="num">04</span><h3>Installations</h3><p>Dispositifs interactifs mêlant capteurs, code et son spatialisé.</p></li></ul>
+</section>
+<section class="contact-band">
+  <p class="eyebrow reveal">CONTACT</p>
+  <h2 class="h-xl reveal">Let’s make<br>something people<br><span class="gold">remember.</span></h2>
+</section>
+<div class="gold-stripe"></div>
+</main>
+<footer class="site-footer">
+  <div class="footer-cta reveal">
+    <a class="btn btn-glow" href="mailto:thibaut.vacek.creations@gmail.com">CONTACT</a>
+    <a class="mail" href="mailto:thibaut.vacek.creations@gmail.com">thibaut.vacek.creations@gmail.com</a>
+  </div>
+  <div class="footer-row">
+    <span>(+64) 0432 452 546 | (+33) 07 50 95 78 22</span>
+    <img class="spiral" src="pictures/LOGO_ref.png" alt="">
+    <span>Creative Technologist</span>
+    <img class="spiral" src="pictures/LOGO_ref.png" alt="">
+    <span class="lang"><a class="on" href="#">EN</a> | <a href="#">FR</a></span>
+  </div>
+  <div class="footer-name"><small>2026</small><span class="solid">THIBAUT</span><span class="outline">VACEK</span></div>
+  <img class="footer-watermark" src="pictures/LOGO_ref.png" alt="">
+</footer>
+<script src="script.js"></script>
 </body>
-
 </html>

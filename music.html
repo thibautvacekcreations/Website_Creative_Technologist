@@ -1,94 +1,78 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Music — Thibaut Vacek</title>
-    <meta name="description" content="Ma musique : sorties, écoutes et liens vers les plateformes.">
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music — Thibaut Vacek</title>
+<meta name="description" content="Thibaut Vacek — creative technologist, musician and scientist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Archivo+Black&amp;family=Krona+One&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">THIBAUT VACEK</a>
-
-            <ul class="nav-links">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="projects.html">PROJECTS</a></li>
-                <li><a href="music.html" class="active">MUSIC</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-
-        <section class="page-header">
-            <p class="subtitle">MON UNIVERS SONORE</p>
-            <h1>Music</h1>
-            <p>Écoute mes derniers titres et retrouve-moi sur les plateformes.</p>
-        </section>
-
-        <section class="section music">
-
-            <div class="music-player">
-                <!-- Colle ici le code d'intégration (iframe) de Bandcamp, SoundCloud ou Spotify -->
-                <p>Player à venir</p>
-            </div>
-
-            <div class="music-links">
-                <!-- Remplace chaque "#" par ton lien -->
-                <a href="#" class="button">Spotify</a>
-                <a href="#" class="button">Bandcamp</a>
-                <a href="#" class="button">SoundCloud</a>
-            </div>
-
-            <h2>Sorties</h2>
-
-            <div class="project-grid">
-
-                <article class="project-card">
-                    <div class="project-image image-one"></div>
-                    <div class="project-info">
-                        <h3>Titre de la sortie 1</h3>
-                        <p>EP · 2026</p>
-                        <a href="#">Écouter →</a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-image image-two"></div>
-                    <div class="project-info">
-                        <h3>Titre de la sortie 2</h3>
-                        <p>Single · 2025</p>
-                        <a href="#">Écouter →</a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-image image-three"></div>
-                    <div class="project-info">
-                        <h3>Titre de la sortie 3</h3>
-                        <p>Album · 2024</p>
-                        <a href="#">Écouter →</a>
-                    </div>
-                </article>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-        <p>© 2026 Thibaut Vacek — Tous droits réservés.</p>
-    </footer>
-
+<body class="page-music">
+<header class="site-header">
+  <a class="brand" href="index.html"><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>THIBAUT VACEK</span></a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav"><a href="index.html">HOME</a><a href="projects.html">PROJECTS</a><a href="music.html" class="active">MUSIC</a><a href="about.html">ABOUT</a></nav>
+</header>
+<main>
+<section class="music-head">
+  <h1 class="display-wide reveal">MUSIC</h1>
+  <div class="music-intro reveal"><p>An atmospheric blend of electronic music, indie influences and organic instrumentation, combining intimate vocals, guitar and layered production with rhythmic, immersive textures.</p><img class="spiral" src="pictures/LOGO_ref.png" alt=""></div>
+</section>
+<section class="player reveal" data-src="pictures/sous-le-soleil.mp3">
+  <div class="wave" id="wave"></div>
+  <button class="play" aria-label="Play / Pause"><i class="tri"></i></button><span class="player-title">SOUS LE SOLEIL</span>
+</section>
+<section class="carousel reveal"><div class="carousel-track"><figure><img src="pictures/MUSIC/Signalbo_PressPicture_1.png"></figure><figure><img src="pictures/MUSIC/Signalbo_PressPicture_2.png"></figure><figure><img src="pictures/MUSIC/Live_plage_Back.png"><figcaption>LIVE SESSION</figcaption></figure><figure><img src="pictures/MUSIC/Signalbo_PressPicture_1.png"></figure><figure><img src="pictures/MUSIC/Signalbo_PressPicture_2.png"></figure><figure><img src="pictures/MUSIC/Live_plage_Back.png"><figcaption>LIVE SESSION</figcaption></figure><figure><img src="pictures/MUSIC/Signalbo_PressPicture_1.png"></figure><figure><img src="pictures/MUSIC/Signalbo_PressPicture_2.png"></figure><figure><img src="pictures/MUSIC/Live_plage_Back.png"><figcaption>LIVE SESSION</figcaption></figure></div></section>
+<section class="listen">
+  <a class="listen-a reveal" href="#">LISTEN</a>
+  <img class="rings" src="pictures/logo_rings.png" alt="">
+  <a class="listen-b reveal" href="#">EVERYWHERE</a>
+</section>
+<section class="album">
+  <h2 class="signalbo reveal">SIGNALB<img class="o" src="pictures/LOGO_ref.png"></h2>
+  <h3 class="album-title reveal">CAPTER L’ÉCLOSION</h3>
+  <ol class="tracklist"><li class="reveal" style="--d:0ms"><a href="#"><span class="num">01</span><span class="t">GRADUATION</span><i class="tri"></i></a></li><li class="reveal" style="--d:80ms"><a href="#"><span class="num">02</span><span class="t">SOUS LE SOLEIL</span><i class="tri"></i></a></li><li class="reveal" style="--d:160ms"><a href="#"><span class="num">03</span><span class="t">ÉCLOSION</span><i class="tri"></i></a></li><li class="reveal" style="--d:240ms"><a href="#"><span class="num">04</span><span class="t">FRIENDS</span><i class="tri"></i></a></li><li class="reveal" style="--d:320ms"><a href="#"><span class="num">05</span><span class="t">GLASSES &amp; GLANCES</span><i class="tri"></i></a></li></ol>
+  <div class="strip"><img src="pictures/MUSIC/eclosion_1.jpg"><img src="pictures/MUSIC/eclosion_2.jpg"><img src="pictures/MUSIC/eclosion_3.jpg"><img src="pictures/MUSIC/eclosion_4.jpg"><img src="pictures/MUSIC/eclosion_5.png"></div>
+</section>
+<div class="ticker" aria-hidden="true"><ul class="ticker-track"><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>SIGNAL PROCESSING</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>RECORD &amp; MIX</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>LIVE SHOWS</span></li><li><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>PROJECT MANAGEMENT</span></li></ul></div>
+<section class="shows">
+  <h2 class="h-lg reveal">Shows</h2>
+  <h3 class="h-md blue reveal">Upcoming</h3>
+  <ul class="show-list">
+    <li class="reveal"><time>27 Nov 2026</time><strong>Elswr Festival</strong><span>Sydney</span><img src="pictures/logo_rings.png"></li>
+  </ul>
+  <h3 class="h-md tan reveal">Past</h3>
+  <ul class="show-list">
+    <li class="reveal"><time>6 March 2026</time><strong>The Lansdowne Hotel</strong><span>Sydney</span><img src="pictures/logo_rings.png"></li>
+  </ul>
+</section>
+<section class="other-works">
+  <h2 class="h-lg reveal">Other works</h2>
+  <div class="other-grid">
+    <a class="card  label-top reveal" href="project.html#collaborations"><img src="pictures/PROJECTS/collaboration.jpg" alt="COLLABORATIONS"><span class="card-label">COLLABORATIONS</span></a>
+    <a class="card  label-top-right reveal" href="project.html#early-works"><img src="pictures/PROJECTS/early_works.jpg" alt="EARLY WORKS"><span class="card-label">EARLY WORKS</span></a>
+    <a class="card wide label-top-right reveal" href="project.html#fm-plugin-coding"><img src="pictures/PROJECTS/audio_plugin.png"><span class="card-label">FM PLUGIN CODING</span></a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="footer-cta reveal">
+    <a class="btn btn-glow" href="mailto:thibaut.vacek.creations@gmail.com">CONTACT</a>
+    <a class="mail" href="mailto:thibaut.vacek.creations@gmail.com">thibaut.vacek.creations@gmail.com</a>
+  </div>
+  <div class="footer-row">
+    <span>(+64) 0432 452 546 | (+33) 07 50 95 78 22</span>
+    <img class="spiral" src="pictures/LOGO_ref.png" alt="">
+    <span>Creative Technologist</span>
+    <img class="spiral" src="pictures/LOGO_ref.png" alt="">
+    <span class="lang"><a class="on" href="#">EN</a> | <a href="#">FR</a></span>
+  </div>
+  <div class="footer-name"><small>2026</small><span class="solid">THIBAUT</span><span class="outline">VACEK</span></div>
+  <img class="footer-watermark" src="pictures/LOGO_ref.png" alt="">
+</footer>
+<script src="script.js"></script>
 </body>
-
 </html>
