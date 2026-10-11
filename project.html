@@ -1,64 +1,42 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Modèle de page projet : duplique ce fichier pour chaque projet (ex. project-vsea.html) -->
-    <title>Nom du projet — Thibaut Vacek</title>
-    <meta name="description" content="Description courte du projet.">
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project — Thibaut Vacek</title>
+<meta name="description" content="Thibaut Vacek — creative technologist, musician and scientist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Archivo+Black&amp;family=Krona+One&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">THIBAUT VACEK</a>
-
-            <ul class="nav-links">
-                <li><a href="index.html">HOME</a></li>
-                <!-- Les pages projet restent sous l'onglet PROJECTS -->
-                <li><a href="projects.html" class="active">PROJECTS</a></li>
-                <li><a href="music.html">MUSIC</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-
-        <section class="page-header">
-            <p class="subtitle">PROJET</p>
-            <h1>Nom du projet</h1>
-            <p>Une phrase qui résume le projet.</p>
-        </section>
-
-        <section class="section about">
-
-            <div class="project-image image-one" style="border-radius: 8px; margin-bottom: 40px;"></div>
-
-            <h2>Contexte</h2>
-            <p>De quoi s'agit-il, pour qui, et pourquoi ce projet existe.</p>
-
-            <h2>Technologies</h2>
-            <p>Outils, langages et matériel utilisés.</p>
-
-            <h2>Résultat</h2>
-            <p>Ce que le projet a produit. Ajoute ici des images, une vidéo ou un lien.</p>
-
-            <a href="projects.html" class="button">← Retour aux projets</a>
-
-        </section>
-
-    </main>
-
-    <footer>
-        <p>© 2026 Thibaut Vacek — Tous droits réservés.</p>
-    </footer>
-
+<body class="page-project">
+<header class="site-header">
+  <a class="brand" href="index.html"><img class="spiral" src="pictures/logo-spiral.svg" alt=""><span>THIBAUT VACEK</span></a>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav"><a href="index.html">HOME</a><a href="projects.html" class="active">PROJECTS</a><a href="music.html">MUSIC</a><a href="about.html">ABOUT</a></nav>
+</header>
+<main>
+<div id="project-root"></div>
+<noscript><p style="padding:120px 20px">Enable JavaScript to see this project, or go back to <a href="projects.html">PROJECTS</a>.</p></noscript>
+</main>
+<footer class="site-footer">
+  <div class="footer-cta reveal">
+    <a class="btn btn-glow" href="mailto:thibaut.vacek.creations@gmail.com">CONTACT</a>
+    <a class="mail" href="mailto:thibaut.vacek.creations@gmail.com">thibaut.vacek.creations@gmail.com</a>
+  </div>
+  <div class="footer-row">
+    <span>(+64) 0432 452 546 | (+33) 07 50 95 78 22</span>
+    <img class="spiral" src="pictures/logo-spiral.svg" alt="">
+    <span>Creative Technologist</span>
+    <img class="spiral" src="pictures/logo-spiral.svg" alt="">
+    <span class="lang"><a class="on" href="#">EN</a> | <a href="#">FR</a></span>
+  </div>
+  <div class="footer-name"><small>2026</small><span class="solid">THIBAUT</span><span class="outline">VACEK</span></div>
+  <img class="footer-watermark" src="pictures/logo-spiral.svg" alt="">
+</footer>
+<script src="projects-data.js"></script>
+<script src="project.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
