@@ -12,6 +12,7 @@
   const rich = s => esc(s).replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   const path = s => /^(https?:)?\/\//.test(s) || s.startsWith('/') || s.startsWith('pictures/') ? s : `pictures/${s}`;
   const ratio = r => r ? `style="aspect-ratio:${esc(r)}"` : '';
+  const num = r => { const [a, b = 1] = String(r).split('/').map(Number); return a / b; };
   const gone = `onerror="this.closest('figure,.pj-cell').remove()"`;
   document.title = `${p.title} — Thibaut Vacek`;
   if (p.accent) { root.style.setProperty('--gold', p.accent); root.style.setProperty('--gold-soft', p.accent); root.style.setProperty('--gold-line', p.accent + '99'); }
@@ -25,6 +26,8 @@
   const blocks = {
     image:  o => wrap('b-image', `<div class="pj-cell" ${ratio(o.ratio)}>${img(o, gone)}</div>`, o.caption),
     pair:   o => wrap('b-pair',  `<div class="pj-cols c2">${o.images.map(x => `<div class="pj-cell" ${ratio(x.ratio || o.ratio || '4/5')}>${img(x, gone)}</div>`).join('')}</div>`, o.caption),
+    triple: o => wrap('b-triple', `<div class="pj-cols c3">${o.images.slice(0, 3).map(x => `<div class="pj-cell" ${ratio(x.ratio || o.ratio || '4/5')}>${img(x, gone)}</div>`).join('')}</div>`, o.caption),
+    videos: o => wrap('b-videos', `<div class="pj-flex">${o.videos.map(v => { const r = v.ratio || o.ratio || '9/16'; return `<div class="pj-cell" style="flex:${num(r)} 1 0;aspect-ratio:${esc(r)}"><video ${(v.controls || o.controls) ? 'controls' : 'autoplay muted loop'} playsinline preload="metadata" ${v.poster ? `poster="${path(v.poster)}"` : ''}><source src="${path(v.src)}"></video></div>`; }).join('')}</div>`, o.caption),
     section: o => {
   const isVideo = /\.(mp4|webm)(\?.*)?$/i.test(o.src);
   const visual = isVideo
@@ -83,7 +86,7 @@ const wide = p.hero ? `<section class="pj-hero reveal${p.hero.position === 'bott
     if (!v.controls) { v.muted = true; v.play().catch(e => console.warn('Lecture bloquée :', e)); }
     v.querySelector('source')?.addEventListener('error', e => {
       console.warn('Vidéo introuvable ou illisible :', e.target.src);
-      v.closest('figure, .pj-hero')?.remove();
+      (v.closest('.pj-cell') || v.closest('figure, .pj-hero'))?.remove()
     });
   });
   root.querySelectorAll('[data-bode]').forEach(el => window.BodeWah && BodeWah.init(el, bodes[+el.dataset.bode]));
