@@ -26,8 +26,7 @@
   const blocks = {
     image:  o => wrap('b-image', `<div class="pj-cell" ${ratio(o.ratio)}>${img(o, gone)}</div>`, o.caption),
     pair:   o => wrap('b-pair',  `<div class="pj-cols c2">${o.images.map(x => `<div class="pj-cell" ${ratio(x.ratio || o.ratio || '4/5')}>${img(x, gone)}</div>`).join('')}</div>`, o.caption),
-    triple: o => wrap('b-triple', `<div class="pj-cols c3">${o.images.slice(0, 3).map(x => `<div class="pj-cell" ${ratio(x.ratio || o.ratio || '4/5')}>${img(x, gone)}</div>`).join('')}</div>`, o.caption),
-    videos: o => wrap('b-videos', `<div class="pj-flex">${o.videos.map(v => { const r = v.ratio || o.ratio || '9/16'; return `<div class="pj-cell" style="flex:${num(r)} 1 0;aspect-ratio:${esc(r)}"><video ${(v.controls || o.controls) ? 'controls' : 'autoplay muted loop'} playsinline preload="metadata" ${v.poster ? `poster="${path(v.poster)}"` : ''}><source src="${path(v.src)}"></video></div>`; }).join('')}</div>`, o.caption),
+  triple: o => wrap('b-triple', `<div class="pj-cols c3" style="${o.columns ? `grid-template-columns:${esc(o.columns)};` : ''}${o.height ? `grid-auto-rows:${esc(o.height)};` : ''}">${o.images.slice(0, 3).map(x => `<div class="pj-cell" ${o.height ? '' : ratio(x.ratio || o.ratio || '4/5')}>${img(x, gone)}</div>`).join('')}</div>`, o.caption),    videos: o => wrap('b-videos', `<div class="pj-flex">${o.videos.map(v => { const r = v.ratio || o.ratio || '9/16'; return `<div class="pj-cell" style="flex:${num(r)} 1 0;aspect-ratio:${esc(r)}"><video ${(v.controls || o.controls) ? 'controls' : 'autoplay muted loop'} playsinline preload="metadata" ${v.poster ? `poster="${path(v.poster)}"` : ''}><source src="${path(v.src)}"></video></div>`; }).join('')}</div>`, o.caption),
     section: o => {
   const isVideo = /\.(mp4|webm)(\?.*)?$/i.test(o.src);
   const visual = isVideo

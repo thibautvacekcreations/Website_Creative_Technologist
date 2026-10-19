@@ -6,10 +6,33 @@
    - BDO Grotesk    -> Archivo      (texte)
    Pour les polices d'origine, remplace les variables ci-dessous.
    ========================================================= */
-:root{
+   @font-face{
+     font-family:"Archivo Black";
+     src:url("font/ArchivoBlack-Regular.woff2") format("woff2");
+     font-weight:400;
+     font-style:normal;
+     font-display:swap;
+   }
+  @font-face{
+     font-family:"BDO Bold";
+     src:url("font/BDOGrotesk-Bold.woff2") format("woff2");
+     font-weight:400;
+     font-style:normal;
+     font-display:swap;
+   }
+
+      @font-face{
+     font-family:"BDO Medium";
+     src:url("fonts/font/BDOGrotesk-Medium.woff2") format("woff2");
+     font-weight:400;
+     font-style:normal;
+     font-display:swap;
+   }
+
+   :root{
   --font-wide:"Krona One","Archivo Black",sans-serif;
-  --font-black:"Archivo Black","Archivo",sans-serif;
-  --font-body:"Archivo",system-ui,sans-serif;
+  --font-black:"Archivo Black","BDO Bold",sans-serif;
+  --font-body:"BDO Medium",system-ui,sans-serif;
 
   --black:#000;
   --ink:#140c0a;
@@ -43,7 +66,9 @@ main{display:block}
 
 /* ---------- Backgrounds par page ---------- */
 .page-home{background:var(--black)}
-.page-home .hero,.page-home .intro{background:linear-gradient(135deg,#1b110e 0%,#3a2c2a 55%,#4d3c3a 100%)}
+/*.page-home .hero,.page-home .intro{background:linear-gradient(135deg,#1b110e 0%,#3a2c2a 55%,#4d3c3a 100%)}*/
+.page-home .hero,.page-home .intro{background:none}
+.expertise,.contact-band{background:rgba(15,8,6,.35)}   /* léger voile au lieu du dégradé plein */
 .page-projects{background:var(--cream);color:var(--cream-ink)}
 .page-music{background:linear-gradient(180deg,#21140f 0%,#3b2d2a 40%,#2a1b17 100%) fixed}
 .page-about{background:linear-gradient(135deg,#150b09 0%,#3b2d2b 60%,#4a3a38 100%) fixed}
@@ -401,3 +426,27 @@ main{display:block}
 
 .pj-flex{display:flex;gap:12px;align-items:flex-start}
 .pj-flex .pj-cell{min-width:0;border-radius:16px}
+
+@media (max-width:640px){.pj-cols.c3{grid-template-columns:1fr 1fr!important}}
+
+/* Image de fond plein écran, derrière tout */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  pointer-events:none;
+}
+
+body::before{animation:bgdrift 40s ease-in-out infinite alternate}
+@keyframes bgdrift{from{transform:scale(1)}to{transform:scale(1.08) translate(-1%,1%)}}
+
+/* Une image par page, avec un voile sombre pour garder le texte lisible */
+.page-home::before    {background-image:linear-gradient(rgba(15,8,6,.45),rgba(15,8,6,.75)), url("Backgrounds/bckgnd_home.png")}
+.page-music::before   {background-image:linear-gradient(rgba(15,8,6,.5),rgba(15,8,6,.8)),  url("Backgrounds/bckgnd_music.png")}
+.page-about::before   {background-image:linear-gradient(rgba(15,8,6,.5),rgba(15,8,6,.8)),  url("Backgrounds/bckgnd_about.png")}
+.page-project::before {background-image:linear-gradient(rgba(15,8,6,.5),rgba(15,8,6,.8)),  url("Backgrounds/bckgnd_project.png")}
+.page-projects::before{background-image:linear-gradient(rgba(241,223,189,.35),rgba(241,223,189,.6)), url("Backgrounds/bckgnd_projects.png")}
