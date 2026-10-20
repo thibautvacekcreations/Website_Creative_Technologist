@@ -235,24 +235,24 @@ main{display:block}
 /* ---------- MUSIC ---------- */
 .music-head{padding:100px var(--pad) 10px;display:flex;flex-direction:column;align-items:flex-end;text-align:right}
 .music-head .display-wide{margin-right:6vw}
-.music-intro{display:flex;align-items:center;gap:16px;max-width:620px;margin:16px 6vw 0 0;font-size:.82rem}
-.music-intro .spiral{width:42px;height:42px;animation:spin 14s linear infinite}
-.player{margin:50px auto 0;width:min(920px,88%)}
+.music-intro{display:flex;align-items:center;gap:16px;max-width:70%;margin:25px 6vw 0 0;font-size:1.8rem}
+.music-intro .spiral{width:100px;height:100px;animation:spin 8s linear infinite}
+.player{margin:50px auto 0;width:100% }
 .wave{display:flex;align-items:flex-end;gap:3px;height:96px;padding:8px 8px 6px;background:#111;border-radius:2px}
 .wave i{flex:1;background:#e3ddd0;border-radius:1px;transform-origin:bottom;height:var(--h);transition:height .25s}
 .wave i:nth-child(5n){background:#c98763}
 .player.playing .wave i{animation:eq .9s ease-in-out infinite alternate;animation-delay:calc(var(--i)*-60ms)}
 @keyframes eq{from{transform:scaleY(.35)}to{transform:scaleY(1.05)}}
 .player{position:relative}
-.play{width:46px;height:46px;border-radius:50%;border:3px solid #fff;background:#10202c;display:inline-grid;place-items:center;cursor:pointer;margin-top:12px;vertical-align:middle;transition:transform .3s,box-shadow .3s}
+.play{width:46px;height:46px;border-radius:50%; margin-left:20%;border:3px solid #fff;background:#10202c;display:inline-grid;place-items:center;cursor:pointer;margin-top:12px;vertical-align:middle;transition:transform .3s,box-shadow .3s}
 .play:hover{transform:scale(1.12);box-shadow:0 0 22px rgba(79,155,201,.7)}
 .tri{display:inline-block;width:0;height:0;border-left:15px solid var(--blue);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
 .player.playing .tri{border:0;width:14px;height:16px;margin:0;background:linear-gradient(90deg,var(--blue) 0 35%,transparent 35% 65%,var(--blue) 65%)}
 .player-title{font-family:var(--font-black);font-size:1.15rem;margin-left:16px;vertical-align:middle}
-.carousel{margin-top:50px;overflow:hidden}
+.carousel{margin-top:90px;overflow:hidden}
 .carousel-track{display:flex;gap:12px;width:max-content;animation:drift 50s linear infinite}
 .carousel:hover .carousel-track{animation-play-state:paused}
-.carousel figure{position:relative;height:clamp(200px,38vw,300px);flex:none}
+.carousel figure{position:relative;height:clamp(200px,50vw,600px);flex:none}
 .carousel figure img{height:100%;width:auto;object-fit:cover}
 .carousel figcaption{position:absolute;top:14px;left:12%;right:0;font-family:var(--font-black);font-size:.95rem;border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:4px}
 @keyframes drift{to{transform:translateX(-50%)}}
