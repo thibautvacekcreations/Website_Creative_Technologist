@@ -42,6 +42,7 @@
     const cv = document.createElement('canvas'); wave.prepend(cv);
     const ctx = cv.getContext('2d');
     const audio = new Audio(player.dataset.src); audio.preload = 'metadata';
+    window.addEventListener('tv:play', e => { if (e.detail !== audio) { audio.pause(); player.classList.remove('playing'); } });
 
     const PAD = 10, GAP = 3;
     let W = 0, H = 0, hover = null, seeking = false, raf = 0;
@@ -100,7 +101,11 @@
     const tick = () => { draw(); updateTime(); raf = audio.paused ? 0 : requestAnimationFrame(tick); };
     const toggle = () => audio.paused ? audio.play().catch(() => {}) : audio.pause();
     btn.addEventListener('click', toggle);
-    audio.addEventListener('play', () => { player.classList.add('playing'); cancelAnimationFrame(raf); tick(); });
+    audio.addEventListener('play', () => {
+      player.classList.add('playing');
+      window.dispatchEvent(new CustomEvent('tv:play', { detail: audio }));   // prévient les autres lecteurs
+      cancelAnimationFrame(raf); tick();
+    });    
     audio.addEventListener('pause', () => { player.classList.remove('playing'); draw(); });
     audio.addEventListener('ended', () => { player.classList.remove('playing'); audio.currentTime = 0; draw(); updateTime(); });
     audio.addEventListener('loadedmetadata', () => { tDur.textContent = fmt(audio.duration); draw(); });
@@ -135,6 +140,80 @@ document.querySelectorAll('.ticker-track').forEach(track => {
   const k = Math.max(2, 2 * Math.ceil(innerWidth / track.scrollWidth));
   for (let i = 1; i < k; i++) base.forEach(li => track.appendChild(li.cloneNode(true)));
 });
+
+  // Liste des morceaux : lecture mp3, progression en transparence, clic/glisser pour choisir le moment
+  const tracks = [...document.querySelectorAll('.tracklist .track')];
+  if (tracks.length) {
+    const audio = new Audio(); audio.preload = 'metadata';
+    let cur = null, raf = 0, pending = null;
+    const frac = () => audio.duration ? audio.currentTime / audio.duration : 0;
+    const setP = (t, p) => {
+      t.style.setProperty('--p', (p * 100).toFixed(2) + '%');
+      t.querySelector('.track-row').setAttribute('aria-valuenow', Math.round(p * 100));
+    };
+    const tick = () => { if (cur) setP(cur, frac()); raf = audio.paused ? 0 : requestAnimationFrame(tick); };
+    const select = t => {
+      if (cur === t) return;
+      if (cur) { cur.classList.remove('playing'); setP(cur, 0); }
+      cur = t; pending = null; t.classList.remove('is-error'); audio.src = t.dataset.src;
+    };
+    const start = () => audio.play().catch(() => cur && cur.classList.add('is-error'));
+    const toggle = t => { if (cur === t && !audio.paused) audio.pause(); else { select(t); start(); } };
+    const seek = (t, f) => {
+      select(t);
+      const go = () => { audio.currentTime = f * audio.duration; setP(t, f); };
+      if (audio.readyState >= 1) go(); else pending = go;
+    };
+
+    audio.addEventListener('loadedmetadata', () => { if (pending) { const g = pending; pending = null; g(); } });
+    audio.addEventListener('play', () => {
+      cur && cur.classList.add('playing');
+      window.dispatchEvent(new CustomEvent('tv:play', { detail: audio }));
+      cancelAnimationFrame(raf); tick();
+    });
+    audio.addEventListener('pause', () => cur && cur.classList.remove('playing'));
+    audio.addEventListener('ended', () => {            // enchaîne sur le morceau suivant
+      const i = tracks.indexOf(cur);
+      if (cur) { cur.classList.remove('playing'); setP(cur, 0); }
+      if (tracks[i + 1]) { select(tracks[i + 1]); start(); }
+    });
+    audio.addEventListener('error', () => cur && cur.classList.add('is-error'));
+    window.addEventListener('tv:play', e => { if (e.detail !== audio) audio.pause(); });
+
+    tracks.forEach(t => {
+      const row = t.querySelector('.track-row');
+      const f = e => { const r = row.getBoundingClientRect(); return Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)); };
+      let down = null, moved = false;
+
+      t.querySelector('.track-play').addEventListener('click', e => { e.stopPropagation(); toggle(t); });
+
+      row.addEventListener('pointerdown', e => {
+        if (e.target.closest('.track-play')) return;
+        down = { x: e.clientX, id: e.pointerId }; moved = false;
+      });
+      row.addEventListener('pointermove', e => {       // glisser = faire défiler le morceau
+        if (!down) return;
+        if (!moved && Math.abs(e.clientX - down.x) > 6) { moved = true; row.setPointerCapture(down.id); }
+        if (moved) { seek(t, f(e)); if (audio.paused) start(); }
+      });
+      const up = () => { down = null; };
+      row.addEventListener('pointerup', up); row.addEventListener('pointercancel', up);
+      row.addEventListener('click', e => {             // clic = aller à cet endroit et lire
+        if (e.target.closest('.track-play')) return;
+        if (moved) { moved = false; return; }
+        seek(t, f(e)); if (audio.paused) start();
+      });
+      row.addEventListener('keydown', e => {
+        if (e.target !== row) return;
+        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(t); }
+        else if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && cur === t && audio.duration) {
+          e.preventDefault();
+          audio.currentTime = Math.max(0, Math.min(audio.duration, audio.currentTime + (e.key === 'ArrowRight' ? 5 : -5)));
+          setP(t, frac());
+        }
+      });
+    });
+  }
 
 })();
 
