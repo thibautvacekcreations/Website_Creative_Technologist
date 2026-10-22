@@ -9,8 +9,10 @@
 
   const p = list[i], next = list[(i + 1) % list.length];
   const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
-  const rich = s => esc(s).replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-  const path = s => /^(https?:)?\/\//.test(s) || s.startsWith('/') || s.startsWith('pictures/') ? s : `pictures/${s}`;
+const rich = s => esc(s).replace(/\[([^\]]+)\]\(((?:https?:\/\/|\/|\.\/|\.\.\/|#)[^)\s]+|[\w-]+\.html(?:#[\w-]+)?)\)/g, (m, t, u) => {
+  const ext = /^https?:/.test(u);
+  return `<a href="${u}"${ext ? ' target="_blank" rel="noopener"' : ''}>${t}</a>`;
+});  const path = s => /^(https?:)?\/\//.test(s) || s.startsWith('/') || s.startsWith('pictures/') ? s : `pictures/${s}`;
   const ratio = r => r ? `style="aspect-ratio:${esc(r)}"` : '';
   const num = r => { const [a, b = 1] = String(r).split('/').map(Number); return a / b; };
   const gone = `onerror="this.closest('figure,.pj-cell').remove()"`;

@@ -134,7 +134,16 @@
   document.querySelector('.cf-form')?.addEventListener('submit', e => {
     const b = e.target.querySelector('button'); b.textContent = 'SENT ✓';
   });
+
+  // Bandeaux défilants : remplace les <img> du logo par un <span> colorable via --tk-color
+document.querySelectorAll('.ticker img.spiral').forEach(img => {
+  const s = document.createElement('span');
+  s.className = 'spiral';
+  img.replaceWith(s);
+});
+
 // Bandeaux défilants : on duplique le contenu pour couvrir n'importe quelle largeur d'écran
+
 document.querySelectorAll('.ticker-track').forEach(track => {
   const base = [...track.children];
   const k = Math.max(2, 2 * Math.ceil(innerWidth / track.scrollWidth));

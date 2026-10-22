@@ -23,12 +23,15 @@ window.PROJECTS = [
 
 
   { slug:"live-session", title:"Live Session", category:"Live shows",
-  overview:"A live set recorded on the cliffs, with vocals, guitar and a modular rig performing in front of the sea. A short film where the landscape becomes part of the instrument.",
-  info:[["Role","Artist, producer"],["Date","2026"],["Format","Live video, audio"],["Tools","Ableton Live, modular synth"]],
+  overview:["A seven-minute live session built around [Sous le Soleil](music.html), produced by [Aled](https://www.instagram.com/aled_production/) and filmed at sunset near the cliffs of Étretat, France.",
+  "The performance brings together live vocals, guitar, drum pads and real-time looping, with the arrangement being built and reshaped throughout the session. Loops are recorded, layered and manipulated live, turning the performance into a continuous dialogue between voice, rhythm and guitar.",
+  "Shot as the sun sets over the sea, the film deliberately blurs the line between music performance and landscape. The changing light, open horizon and surrounding cliffs become part of the visual and emotional composition — creating a live piece where the environment is not simply a backdrop, but an integral part of the performance."
+  ],
+    info:[["Role","Artist, producer"],["Date","2026"],["Format","Live video, audio"],["Tools","Ableton Live, modular synth"]],
   hero:{ video:"PROJECTS/extrait_website_livess_comp.mp4", poster:"PROJECTS/Live_plage_mic.png" },
   media:[
-    { type:"embed", src:"embed", src:"https://www.youtube.com/embed/JqRjSROH5xQ", ratio:"16/9", caption:"Full live session" },
-    { type:"image",  src:"PROJECTS/bateau_livesess.png", ratio:"4/3" }
+    { type:"embed", src:"embed", src:"https://www.youtube.com/embed/JqRjSROH5xQ", ratio:"16/9"},
+    { type:"image",  src:"PROJECTS/bateau_livesess.png", ratio:"9/3" }
   ] },
 
   
@@ -149,11 +152,17 @@ window.PROJECTS = [
 ]},
 
   { slug:"early-works", title:"Early Works", category:"Archive",
-    overview:"The first pieces, before the current direction took shape. A collection of sketches, drawings and early recordings that still feed what comes next.",
-    info:[["Role","Artist"],["Date","Before 2022"],["Format","Mixed media"],["Tools","Various"]],
+    overview:[
+      "The first experiments, before a clear creative direction had taken shape. I started composing music and exploring recording and mixing at the age of 13, while simultaneously experimenting with video as a way to give these ideas a visual dimension. Under my first artist name, The Triper (see logo on the right), I began developing projects with little formal knowledge of either discipline, learning by making things — trying techniques, building small projects, breaking them, and starting again.",
+      "These early projects were less about producing polished work than about discovering what could be done by combining music, recording, editing and image. They became a playground for experimentation, gradually shaping the way I approach creative projects today: learning through practice, connecting different mediums, and using technical constraints as a reason to invent new ideas.",
+      "On my [YouTube channel](https://www.youtube.com/@thetriper), I created a series of video projects centred around covers of songs I loved. Rather than simply reproducing the original tracks, I developed a visual concept for each cover, using recording, vocal layering, editing and practical effects to reinterpret the music through my own creative language.",
+      "EARFQUAKE – Tyler, The Creator: A vocal cover built around layered harmonies, with the video featuring five versions of myself performing the different recorded parts. The pink T-shirt is a visual reference to the IGOR album cover, creating a playful connection between the original work and my own interpretation.",
+      "CASINO – Disiz: An experiment in live looping and performance. I recreated the instrumental by recording and triggering loops in real time, then managed and layered them while performing the vocals over the evolving arrangement. The project became an early exploration of the relationship between composition, performance and technology — an approach that would later become central to my work."  
+    ],
+    info:[["Role","Artist"],["Date","2013-2022"],["Format","Mixed media"],["Tools","Various"]],
     media:[
-      { type:"image", src:"early-works.jpg", ratio:"1/1" },
-      { type:"grid",  images:[{src:"early-works-2.jpg"},{src:"early-works-3.jpg"},{src:"early-works-4.jpg"},{src:"early-works-5.jpg"}] }
+      { type:"image", src:"PROJECTS/early_works.jpg" },
+      { type:"pair",  images:[{src:"pictures/PROJECTS/tyler_cover.png"},{src:"pictures/PROJECTS/cover_loop_early.png"}], ratio:"5/3" }
     ] },
 
   { slug:"fm-plugin-coding", title:"FM Plugin Coding", category:"Code & sound",
