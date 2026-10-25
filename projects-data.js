@@ -159,7 +159,7 @@ window.PROJECTS = [
       "EARFQUAKE – Tyler, The Creator: A vocal cover built around layered harmonies, with the video featuring five versions of myself performing the different recorded parts. The pink T-shirt is a visual reference to the IGOR album cover, creating a playful connection between the original work and my own interpretation.",
       "CASINO – Disiz: An experiment in live looping and performance. I recreated the instrumental by recording and triggering loops in real time, then managed and layered them while performing the vocals over the evolving arrangement. The project became an early exploration of the relationship between composition, performance and technology — an approach that would later become central to my work."  
     ],
-    info:[["Role","Artist"],["Date","2013-2022"],["Format","Mixed media"],["Tools","Various"]],
+    info:[["Role","Artist"],["Date","2013-2022"],["Format","Mixed media"],["Tools","Logic Pro, Ableton Live, iMovie"]],
     media:[
       { type:"image", src:"PROJECTS/early_works.jpg" },
       { type:"pair",  images:[{src:"pictures/PROJECTS/tyler_cover.png"},{src:"pictures/PROJECTS/cover_loop_early.png"}], ratio:"5/3" }
