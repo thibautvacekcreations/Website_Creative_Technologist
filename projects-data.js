@@ -43,7 +43,7 @@ window.PROJECTS = [
     overview: [
   "This 5-track EP was released on March 4, 2026, marking the first release under the eponymous name Signalbo. This 13-minute project was built around the concept of éclosion — the process of coming into one’s own, reaching one’s full potential, and breaking through the barriers of what once seemed out of reach.",
   "Capter l’Éclosion can be understood in several ways. Above all, it refers to understanding the journey and the effort required to make this emergence a reality. On a more tangible level, it also evokes the act of capturing a moment in time, whether through photography, as reflected in the EP's cover art, or more broadly through any form of physical measurement.",
-  "Although I handled most of the work on this EP myself, I also wanted to bring together the talents of people I had met along the way to help create a more cohesive universe around the project. I composed, recorded, and mixed all five tracks. Mastering was done by Robin Vandamme ([@robin17v](https://www.instagram.com/robin17v/)), photography by Teo Legay ([@teo.leg](https://www.instagram.com/teo.leg/)), and the visual identity was developed by Lena ([@nena_studio_](https://www.instagram.com/nena_studio_/))."
+  "Although I handled most of the work on this EP myself, I also wanted to bring together the talents of people I had met along the way to help create a more cohesive universe around the project. I composed, recorded, and mixed all five tracks. Mastering was done by Robin Vandamme ([@robin17v](https://www.instagram.com/robin17v/)), photography by Teo Leguay ([@teo.leg](https://www.instagram.com/teo.leg/)), and the visual identity was developed by Lena ([@nena_studio_](https://www.instagram.com/nena_studio_/))."
       ],
     info: [
       ["Role", "Writing, recording, mixing"],
@@ -71,7 +71,7 @@ window.PROJECTS = [
     { type: "section", title:"Duo-Created EP", text:"Neon Ultra is a 4-track EP created under the group name Neo Amber, in collaboration with artist Lyes Kaci. This project explores a mysterious universe, with visuals featuring green and blue neon lights symbolizing the duality between the two members of the duo. The compositions strike a balance between the creative ideas of both artists, reflecting a harmonious collaboration. The songs delve into themes of self-discovery and contemplation, focusing on the process of creating art and music.", src:"PROJECTS/Loop_neoamber.mp4", ratio:"1/1" },
     { type: "section", title:"Producer & Arranger", text:["In 2023/2024, I collaborated with an emerging pop singer named Lisa Stervinou, which gave me valuable insight into a producer's role. My responsibilities were diverse. During live performances, I played guitar and managed the backtracks. In the studio and during rehearsals, I contributed to the songwriting and artistic direction of her project. This included advising on lyrics, suggesting chord progressions and melodies, offering production ideas, and selecting the right sounds. I also re-arranged tracks for live performances and provided input on the visual and sonic direction of the project.",
       "This collaboration culminated in the release of three studio tracks, now available on streaming platforms, and four live concerts in Paris. I thoroughly enjoy the role of artistic direction, finding that it comes naturally to me. Deciding what fits within a broader artistic vision feels intuitive, and I’m confident in making these creative choices while still infusing my own style and ideas into the process."],  
-      src:"PROJECTS/Collab_Lisa.jpg", ratio:"4/3" },
+      src:"PROJECTS/lisa_tibo.jpeg", ratio:"4/3" },
   ]},
 
   { slug:"plasma", title:"Plasma", category:"Scientific project", accent:"#ff9a4d",
@@ -162,14 +162,15 @@ window.PROJECTS = [
     info:[["Role","Artist"],["Date","2013-2022"],["Format","Mixed media"],["Tools","Logic Pro, Ableton Live, iMovie"]],
     media:[
       { type:"image", src:"PROJECTS/early_works.jpg" },
-      { type:"pair",  images:[{src:"pictures/PROJECTS/tyler_cover.png"},{src:"pictures/PROJECTS/cover_loop_early.png"}], ratio:"5/3" }
+      { type:"pair",  images:[{src:"pictures/PROJECTS/tyler_cover.png"},{src:"pictures/PROJECTS/kaci_vacek.jpeg"}], ratio:"5/3" }
     ] },
 
   { slug:"fm-plugin-coding", title:"FM Plugin Coding", category:"Code & sound",
-    overview:"A frequency modulation synthesizer coded from scratch as an audio plugin. The goal: understand FM from the maths up and build an instrument that is pleasant to play.",
-    info:[["Role","Design, development"],["Date","2026"],["Format","Audio plugin"],["Tools","C++, JUCE"]],
+    overview:["An experimental Max for Live instrument that combines electric guitar with Frequency Modulation (FM) synthesis. In FM synthesis, a carrier oscillator generates the sound while its frequency is continuously modulated by a second signal, creating complex harmonic spectra. Here, the plugin detects the fundamental frequency of the incoming guitar signal, uses it to tune and trigger an oscillator at the detected note, and applies FM using the guitar signal itself as the modulator. The result is a hybrid instrument where the player's guitar performance directly drives the synthesis and shapes its timbre in real time.",
+    "The plugin is currently under development. A free beta version is available for download: [Guitar FM Synth - Max for Live](https://github.com/TiboVck/Guitar-FM-Synth-Max-for-Live.git)"
+    ],
+      info:[["Role","Design, development"],["Date","2026"],["Format","Audio plugin"],["Max for Live"]],
     media:[
-      { type:"image", src:"fm-plugin-coding.jpg", ratio:"16/9" },
-      { type:"video", src:"fm-plugin-demo.mp4", ratio:"16/9", controls:true }
+      { type:"image", src:"pictures/PROJECTS/plugin_FM.png", ratio:"16/3" },
     ] }
 ];
