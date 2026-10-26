@@ -581,8 +581,8 @@ main{display:block}
   --st-image:url("Backgrounds/marbre_polyetchnique.png");
   --st-opacity:.15;                 /* transparence de la photo : 0 = invisible, 1 = pleine */
   --st-size:cover;                  /* taille : cover, 120%, 60%, auto 90%... */
-  --st-x:150px;                       /* position horizontale */
-  --st-y:10%;                       /* position verticale */
+  --st-x:200px;                       /* position horizontale */
+  --st-y:-200%;                       /* position verticale */
 }
 .studies::before{
   content:"";
@@ -763,7 +763,7 @@ body::before{
 
 
 .logo{width:var(--logo-size, 120px);height:auto; display:block;margin-inline:auto}
-
+.logo{margin-top:clamp(20px,5vw,70px)}
 /* ---------- Lecteur audio ---------- */
 .player{
   position:relative;
