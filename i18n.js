@@ -197,7 +197,7 @@
   try {
     const q = new URLSearchParams(location.search).get('lang');
     const saved = localStorage.getItem(KEY);
-    lang = q || saved || ((navigator.language || '').toLowerCase().startsWith('fr') ? 'fr' : 'en');
+    lang = q || saved || 'en';   /* anglais par défaut, quelle que soit la langue du navigateur */
     if (q) localStorage.setItem(KEY, q === 'fr' ? 'fr' : 'en');
   } catch (e) {}
   if (lang !== 'fr') lang = 'en';
