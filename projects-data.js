@@ -30,7 +30,7 @@ window.PROJECTS = [
     info:[["Role","Artist, producer"],["Date","2026"],["Format","Live video, audio"],["Tools","Ableton Live, modular synth"]],
   hero:{ video:"PROJECTS/extrait_website_livess_comp.mp4", poster:"PROJECTS/Live_plage_mic.png" },
   media:[
-    { type:"embed", src:"embed", src:"https://www.youtube.com/embed/JqRjSROH5xQ", ratio:"16/9"},
+    { type:"embed", src:"https://www.youtube.com/embed/JqRjSROH5xQ", ratio:"16/9"},
     { type:"image",  src:"PROJECTS/bateau_livesess.png", ratio:"9/3" }
   ] },
 
@@ -104,7 +104,7 @@ window.PROJECTS = [
   { slug:"des-ordres", title:"Des Ordres", category:"Sound piece",
     overview:["The EP Des Ordres consists of 8 tracks, including 6 songs, forming a 26-minute body of work. These songs are connected by a central theme of the disorder present in our lives — something we constantly seek to control or at least manage. Through this overarching theme, the EP explores a variety of topics such as the passage of time, nostalgia, the desire to make the most of youth, and the effort to overcome dark periods. The visuals depict a character hired by 'L'Agence des Ordres', tasked with observing and understanding this disorder.",
               "The front and back illustrations of the album incorporate the scientific aspect of this experience. The front cover features a Fourier transform of an image of a messy room, while the back displays a photograph of the cosmic microwave background. The colors of both images have been recoded to a gradient ranging from pale pink to sky blue, creating a visual cohesion that mirrors the thematic exploration of disorder and control within the album.",
-                "You can find the code used to generate the cover art here:: [Des Ordres Fourier Art Cover](https://github.com/TiboVck/Des-Ordres-Fourier-Art-Cover.git)"
+                "You can find the code used to generate the cover art here: [Des Ordres Fourier Art Cover](https://github.com/TiboVck/Des-Ordres-Fourier-Art-Cover.git)"
             ],
     info:[["Role","Composition, sound design"],["Date","2025"],["Format","Sound piece"],["Tools","Python, spectral processing"]],
     media:[
@@ -147,6 +147,7 @@ window.PROJECTS = [
     media:[
   { type:"bode", ratio:"16/10",
     caption:"Move your cursor across the diagram to turn the pedal: the resonance sweeps with the potentiometer.",
+    captionTouch:"Drag your finger across the diagram to turn the pedal: the resonance sweeps with the potentiometer.",
     options:{ bg:"#170d0a" , } },
   { type:"pair",  images:[{src:"PROJECTS/schema_wahwah.jpg"},{src:"PROJECTS/pcbfinal.png"}], ratio:"5/3"}
 ]},
@@ -169,8 +170,142 @@ window.PROJECTS = [
     overview:["An experimental Max for Live instrument that combines electric guitar with Frequency Modulation (FM) synthesis. In FM synthesis, a carrier oscillator generates the sound while its frequency is continuously modulated by a second signal, creating complex harmonic spectra. Here, the plugin detects the fundamental frequency of the incoming guitar signal, uses it to tune and trigger an oscillator at the detected note, and applies FM using the guitar signal itself as the modulator. The result is a hybrid instrument where the player's guitar performance directly drives the synthesis and shapes its timbre in real time.",
     "The plugin is currently under development. A free beta version is available for download: [Guitar FM Synth - Max for Live](https://github.com/TiboVck/Guitar-FM-Synth-Max-for-Live.git)"
     ],
-      info:[["Role","Design, development"],["Date","2026"],["Format","Audio plugin"],["Max for Live"]],
+      info:[["Role","Design, development"],["Date","2026"],["Format","Audio plugin"],["Tools","Max for Live"]],
     media:[
       { type:"image", src:"pictures/PROJECTS/plugin_FM.png", ratio:"16/3" },
     ] }
 ];
+
+
+/* =========================================================================
+   VERSION FRANÇAISE DES PROJETS
+   Chaque entrée est rattachée à son projet sous forme d'un champ  fr:{…}
+   (voir plus bas). Tout champ absent reste en anglais.
+     title, category, overview, info  : remplacent les valeurs anglaises
+     media : tableau parallèle à "media" — on n'y met que ce qui change
+             (caption, captionTouch, title, text) ; {} = rien à traduire
+   ========================================================================= */
+window.PROJECTS_FR = {
+
+  "live-session": {
+    title: "Session live",
+    category: "Concerts",
+    overview: [
+      "Une session live de sept minutes construite autour de [Sous le Soleil](music.html), produite par [Aled](https://www.instagram.com/aled_production/) et filmée au coucher du soleil près des falaises d’Étretat, en France.",
+      "La performance réunit voix live, guitare, pads de batterie et looping en temps réel : l’arrangement se construit et se transforme tout au long de la session. Les boucles sont enregistrées, superposées et manipulées en direct, et font de la performance un dialogue continu entre la voix, le rythme et la guitare.",
+      "Tourné pendant que le soleil se couche sur la mer, le film brouille volontairement la frontière entre performance musicale et paysage. La lumière changeante, l’horizon ouvert et les falaises alentour font partie intégrante de la composition visuelle et émotionnelle : l’environnement n’est pas un simple décor, mais une part essentielle de la performance."
+    ],
+    info: [["Rôle", "Artiste, producteur"], ["Date", "2026"], ["Format", "Vidéo live, audio"], ["Outils", "Ableton Live, synthétiseur modulaire"]]
+  },
+
+  "capter-l-eclosion": {
+    category: "Enregistrement & mix",
+    overview: [
+      "Cet EP de 5 titres est sorti le 4 mars 2026 : c’est la première sortie sous mon nom d’artiste éponyme, Signalbo. Ce projet de 13 minutes s’articule autour du concept d’éclosion — le processus par lequel on s’affirme, on atteint son plein potentiel et on franchit les barrières de ce qui semblait hors de portée.",
+      "Capter l’Éclosion peut se comprendre de plusieurs façons. Avant tout, il s’agit de comprendre le parcours et l’effort nécessaires pour que cette émergence devienne réalité. Plus concrètement, cela évoque aussi l’acte de capturer un instant, que ce soit par la photographie, comme le reflète la pochette de l’EP, ou plus largement par toute forme de mesure physique.",
+      "Même si j’ai réalisé l’essentiel du travail moi-même, j’ai voulu réunir les talents de personnes rencontrées en chemin pour construire un univers plus cohérent autour du projet. J’ai composé, enregistré et mixé les cinq titres. Le mastering a été réalisé par Robin Vandamme ([@robin17v](https://www.instagram.com/robin17v/)), la photographie par Teo Leguay ([@teo.leg](https://www.instagram.com/teo.leg/)) et l’identité visuelle a été développée par Lena ([@nena_studio_](https://www.instagram.com/nena_studio_/))."
+    ],
+    info: [["Rôle", "Écriture, enregistrement, mixage"], ["Date", "Mars 2026"], ["Format", "EP, 5 titres, 13 min"], ["Outils", "Ableton Live, guitare, microphones"]]
+  },
+
+  "collaborations": {
+    category: "Enregistrement & mix",
+    overview: "Travaux réalisés avec d’autres artistes : production, mixage, sound design et accompagnement live. Chaque collaboration part de l’univers de l’autre et cherche le moyen technique de le servir.",
+    info: [["Rôle", "Producteur, mixeur"], ["Date", "2023 - aujourd’hui"], ["Format", "Singles, sessions"], ["Outils", "Ableton Live, Pro Tools"]],
+    media: [
+      { title: "EP créé en duo",
+        text: "Neon Ultra est un EP de 4 titres créé sous le nom de groupe Neo Amber, en collaboration avec l’artiste Lyes Kaci. Ce projet explore un univers mystérieux, avec des visuels aux néons verts et bleus qui symbolisent la dualité entre les deux membres du duo. Les compositions trouvent un équilibre entre les idées créatives des deux artistes, reflet d’une collaboration harmonieuse. Les chansons abordent la découverte de soi et la contemplation, en s’intéressant au processus de création artistique et musicale." },
+      { title: "Producteur & arrangeur",
+        text: [
+          "En 2023/2024, j’ai collaboré avec une jeune chanteuse pop, Lisa Stervinou, ce qui m’a donné un aperçu précieux du rôle de producteur. Mes responsabilités étaient variées. En concert, je jouais de la guitare et je gérais les backtracks. En studio et en répétition, je participais à l’écriture et à la direction artistique de son projet : conseils sur les paroles, suggestions de grilles d’accords et de mélodies, idées de production, choix des sons. J’ai aussi réarrangé des morceaux pour la scène et donné mon avis sur la direction visuelle et sonore du projet.",
+          "Cette collaboration a abouti à la sortie de trois titres studio, désormais disponibles sur les plateformes de streaming, et à quatre concerts à Paris. J’apprécie beaucoup le rôle de direction artistique, qui me vient naturellement. Décider de ce qui s’inscrit dans une vision artistique plus large me paraît intuitif, et je suis à l’aise pour faire ces choix créatifs tout en y apportant mon style et mes idées."
+        ] }
+    ]
+  },
+
+  "plasma": {
+    category: "Projet scientifique",
+    overview: [
+      "Ce projet portait sur l’étude des mécanismes de propagation des streamers guidés dans des jets de plasma froid à pression atmosphérique. Il est motivé par le développement d’applications médicales du plasma, en particulier des traitements endoscopiques du cancer.",
+      "L’étude portait sur un cathéter à plasma transféré face à une cible métallique reliée à la terre, en s’intéressant tout particulièrement à l’influence de la distance électrode-cible (gap) sur la propagation des streamers. J’ai travaillé avec trois diagnostics complémentaires : des mesures de courant électrique, une sonde de Pockels pour mesurer le champ électrique local et de l’imagerie ICCD rapide pour résoudre la propagation des streamers à l’échelle de la nanoseconde. Une part importante du travail a consisté à développer des méthodes de traitement du signal et d’analyse de données pour distinguer les différentes contributions électriques générées par le plasma et par le système haute tension. Les mesures ont mis en évidence deux composantes principales du courant : un courant de pré-streamer, associé à des effets capacitifs et électromagnétiques, et un courant de streamer, correspondant à l’onde d’ionisation atteignant la cible.",
+      "Dans l’ensemble, ce projet m’a apporté une expérience concrète en physique expérimentale des plasmas, en analyse de données scientifiques et en développement de méthodes de diagnostic, tout en reliant la physique fondamentale des plasmas à des applications biomédicales émergentes.",
+      "Article publié : [Transferred plasma catheter for endotherapeutic applications: a parametric study of guided streamers dynamics](https://arxiv.org/abs/2504.14637)"
+    ],
+    info: [["Rôle", "Physicien des plasmas"], ["Date", "Mars 2024 - octobre 2024"], ["Laboratoire", "Laboratoire de Physique des Plasmas, Paris"], ["Outils", "Python, générateur haute tension, caméra nanoseconde"]]
+  },
+
+  "audio-source-separation": {
+    title: "Séparation de sources audio",
+    category: "Traitement du signal",
+    overview: [
+      "Ce projet visait à développer un modèle d’apprentissage profond léger pour la séparation de sources audio en temps réel. Nous avons exploré l’adaptation du Tiny Recurrent U-Net (TrU-Net), conçu à l’origine pour le débruitage et la déréverbération de la parole, afin de séparer des sources musicales comme la voix, la guitare et la batterie. Avec environ 380 000 paramètres, ce modèle est une alternative prometteuse aux réseaux de neurones plus volumineux et coûteux en calcul. Son architecture combine des couches convolutives et récurrentes avec un masquage à valeurs complexes, pour améliorer la reconstruction audio.",
+      "Le travail principal a consisté à implémenter le modèle en Python avec TensorFlow/Keras, sur une infrastructure de calcul à distance. Cela comprenait le développement de pipelines de traitement des données, la gestion de jeux de données audio et l’implémentation de différentes configurations du modèle. Les premiers entraînements ont été menés sur un jeu de données limité. Même si les courbes de perte montraient des progrès encourageants, les résultats n’ont pas démontré d’amélioration suffisamment nette de la qualité audio. Les contraintes de temps et les difficultés d’implémentation n’ont pas permis de réaliser des tests et une validation complets. Le stage a néanmoins produit une base de code structurée et relativement stable pour la suite. Les prochaines étapes seraient des entraînements plus longs, une évaluation objective et perceptive des performances, une comparaison avec la recherche d’origine et, à terme, une adaptation à la séparation de sources musicales.",
+      "Dans l’ensemble, le projet m’a apporté une expérience précieuse en apprentissage profond, en traitement du signal audio et en développement logiciel scientifique, tout en soulignant l’importance d’une expérimentation rigoureuse et de l’efficacité computationnelle.",
+      "Code d’implémentation : [Tiny Recurrent U-Net](https://github.com/TiboVck/TRU-Net.git)"
+    ],
+    info: [["Rôle", "Ingénieur data"], ["Date", "Avril 2022 - sept. 2022"], ["Laboratoire", "Laboratoire Traitement et Apprentissage, Palaiseau"], ["Outils", "Tensorflow, Docker, Python"]],
+    media: [ { caption: "Architecture du réseau." } ]
+  },
+
+  "des-ordres": {
+    category: "Pièce sonore",
+    overview: [
+      "L’EP Des Ordres compte 8 titres, dont 6 chansons, pour 26 minutes de musique. Ces chansons sont reliées par un thème central : le désordre présent dans nos vies, que nous cherchons sans cesse à contrôler ou, au moins, à gérer. À travers ce fil conducteur, l’EP explore des sujets variés comme le passage du temps, la nostalgie, l’envie de profiter de sa jeunesse et l’effort pour traverser les périodes sombres. Les visuels mettent en scène un personnage engagé par « L’Agence des Ordres », chargé d’observer et de comprendre ce désordre.",
+      "Les illustrations de la face avant et de la face arrière de l’album intègrent la dimension scientifique de cette expérience. La couverture présente la transformée de Fourier d’une image de chambre en désordre, tandis que le verso montre une photographie du fond diffus cosmologique. Les couleurs des deux images ont été recodées selon un dégradé allant du rose pâle au bleu ciel, ce qui crée une cohérence visuelle reflétant l’exploration thématique du désordre et du contrôle dans l’album.",
+      "Vous pouvez retrouver le code utilisé pour générer les visuels de la pochette ici : [Des Ordres Fourier Art Cover](https://github.com/TiboVck/Des-Ordres-Fourier-Art-Cover.git)"
+    ],
+    info: [["Rôle", "Composition, sound design"], ["Date", "2025"], ["Format", "Pièce sonore"], ["Outils", "Python, traitement spectral"]]
+  },
+
+  "em-impulse": {
+    title: "Impulsion EM",
+    category: "Projet scientifique",
+    overview: [
+      "Ce projet portait sur l’étude des impulsions électromagnétiques (EMP) générées par l’interaction entre des impulsions laser ultra-courtes de forte intensité et des cibles solides. La recherche visait à comprendre comment la géométrie de différentes cibles influence la propagation de l’énergie électromagnétique, avec à la clé des courants d’environ 1 kA et des champs magnétiques de 1 à 10 T. Ces phénomènes pourraient avoir des applications dans l’accélération de particules chargées et la génération de rayonnement GHz et THz.",
+      "L’étude expérimentale combinait modélisation théorique, simulations numériques et diagnostics expérimentaux pour étudier la génération d’EMP. Mon travail a principalement consisté à analyser des images de polarimétrie et des données de calorimétrie. J’ai développé un modèle 3D d’une cible en boucle sinusoïdale, adapté la méthode de traitement d’images à sa géométrie et analysé les mesures obtenues. Les résultats de polarimétrie indiquent des champs magnétiques d’environ 2 T pour une cible en boucle et de 1 à 2 T pour une cible sinusoïdale, correspondant à des courants d’environ 1 kA. Bien qu’inférieures aux prédictions théoriques, ces valeurs restent dans l’ordre de grandeur attendu. L’analyse de l’émission THz a aussi révélé une résonance à 0,3 THz, restée inexpliquée mais située dans la gamme de fréquences attendue. Au-delà du travail technique, le stage m’a permis de comprendre l’organisation des campagnes expérimentales et le domaine plus large de la physique laser-plasma. J’ai pu appliquer mes connaissances en physique des plasmas, en physique statistique et en théorie des champs à un véritable projet de recherche, tout en découvrant l’environnement collaboratif de la recherche scientifique et ses liens avec d’autres laboratoires européens.",
+      "Dans l’ensemble, ce projet a renforcé mon expérience en analyse de données expérimentales, en modélisation physique et en démarche scientifique, tout en constituant une précieuse introduction à la recherche sur les interactions laser-plasma et à de futures études en physique des plasmas et en fusion."
+    ],
+    info: [["Rôle", "Ingénieur physicien"], ["Date", "Avril 2023 - juillet 2023"], ["Laboratoire", "Centre des Lasers Intenses et Applications, Talence"], ["Outils", "Matlab, Radia, Python"]]
+  },
+
+  "variable-band-pass": {
+    title: "Passe-bande variable",
+    category: "Traitement du signal",
+    overview: [
+      "Ce projet d’ingénierie portait sur la conception et la réalisation d’une pédale d’effet wah-wah analogique pour guitare électrique. L’effet wah-wah est produit par un filtre résonant dont la réponse en fréquence change avec la position d’une résistance variable commandée par une pédale. Notre travail a consisté à concevoir le circuit analogique, découpé en plusieurs blocs fonctionnels, dont des amplificateurs différentiels et inverseurs pour le conditionnement et l’isolation du signal, et le filtre principal chargé de modifier le spectre audio. Nous avons réalisé le schéma électrique et le routage du circuit imprimé avec Eagle, puis fabriqué la carte, soudé les composants et testé le circuit à l’oscilloscope et par des mesures du signal. Pendant les tests, nous avons identifié et résolu plusieurs problèmes liés aux alimentations des amplificateurs opérationnels, en ajustant le circuit pour obtenir un signal de sortie plus propre.",
+      "L’analyse théorique comprenait le calcul de la fonction de transfert du filtre et le tracé de diagrammes de Bode pour différentes valeurs de résistance du potentiomètre. Nous avons ensuite comparé ces prédictions à des mesures expérimentales de la réponse en fréquence et de la fréquence de résonance. Les résultats ont montré un bon accord avec le comportement théorique et confirmé que la fréquence de résonance variait comme prévu avec la résistance variable.",
+      "Enfin, nous avons testé le circuit terminé avec une guitare électrique et un amplificateur. Malgré un léger bruit et un peu de distorsion résiduels, la pédale reproduit bien l’effet wah-wah recherché."
+    ],
+    info: [["Rôle", "Conception, développement"], ["Date", "2025"], ["Format", "Outil audio"], ["Outils", "Python, C++, traitement du signal"]],
+    media: [ {
+      caption: "Déplacez le curseur sur le diagramme pour actionner la pédale : la résonance suit le potentiomètre.",
+      captionTouch: "Faites glisser votre doigt sur le diagramme pour actionner la pédale : la résonance suit le potentiomètre."
+    } ]
+  },
+
+  "early-works": {
+    title: "Premiers travaux",
+    category: "Archives",
+    overview: [
+      "Les premières expériences, avant qu’une direction créative claire ne prenne forme. J’ai commencé à composer et à explorer l’enregistrement et le mixage à 13 ans, tout en expérimentant la vidéo pour donner une dimension visuelle à ces idées. Sous mon premier nom d’artiste, The Triper (voir le logo à droite), j’ai commencé à développer des projets avec peu de connaissances formelles dans l’une comme dans l’autre discipline, en apprenant par la pratique : essayer des techniques, construire de petits projets, les casser, et recommencer.",
+      "Ces premiers projets visaient moins à produire des œuvres abouties qu’à découvrir ce qu’il était possible de faire en combinant musique, enregistrement, montage et image. Ils sont devenus un terrain de jeu et d’expérimentation, et ont peu à peu façonné ma manière d’aborder les projets créatifs aujourd’hui : apprendre en pratiquant, relier les médiums et utiliser les contraintes techniques comme prétexte pour inventer de nouvelles idées.",
+      "Sur ma [chaîne YouTube](https://www.youtube.com/@thetriper), j’ai créé une série de projets vidéo autour de reprises de chansons que j’aimais. Plutôt que de simplement reproduire les morceaux originaux, j’ai imaginé un concept visuel pour chaque reprise, en utilisant l’enregistrement, la superposition de voix, le montage et des effets concrets pour réinterpréter la musique avec mon propre langage créatif.",
+      "EARFQUAKE – Tyler, The Creator : une reprise vocale construite sur des harmonies superposées, avec une vidéo montrant cinq versions de moi-même interprétant les différentes parties enregistrées. Le t-shirt rose est une référence visuelle à la pochette de l’album IGOR, qui crée un clin d’œil entre l’œuvre originale et ma propre interprétation.",
+      "CASINO – Disiz : une expérience de live looping et de performance. J’ai recréé l’instrumental en enregistrant et en déclenchant des boucles en temps réel, que je gérais et superposais tout en chantant par-dessus l’arrangement en évolution. Ce projet a été une première exploration de la relation entre composition, performance et technologie — une approche qui deviendrait plus tard centrale dans mon travail."
+    ],
+    info: [["Rôle", "Artiste"], ["Date", "2013-2022"], ["Format", "Techniques mixtes"], ["Outils", "Logic Pro, Ableton Live, iMovie"]]
+  },
+
+  "fm-plugin-coding": {
+    title: "Codage de plugin FM",
+    category: "Code & son",
+    overview: [
+      "Un instrument Max for Live expérimental qui associe guitare électrique et synthèse par modulation de fréquence (FM). En synthèse FM, un oscillateur porteur génère le son pendant que sa fréquence est modulée en continu par un second signal, ce qui crée des spectres harmoniques complexes. Ici, le plugin détecte la fréquence fondamentale du signal de guitare entrant, s’en sert pour accorder et déclencher un oscillateur sur la note détectée, et applique la FM en utilisant le signal de guitare lui-même comme modulateur. Il en résulte un instrument hybride où le jeu du guitariste pilote directement la synthèse et façonne son timbre en temps réel.",
+      "Le plugin est actuellement en développement. Une version bêta gratuite est disponible au téléchargement : [Guitar FM Synth - Max for Live](https://github.com/TiboVck/Guitar-FM-Synth-Max-for-Live.git)"
+    ],
+    info: [["Rôle", "Conception, développement"], ["Date", "2026"], ["Format", "Plugin audio"], ["Outils", "Max for Live"]]
+  }
+};
+
+/* Rattache chaque traduction à son projet : p.fr */
+(window.PROJECTS || []).forEach(p => { if (window.PROJECTS_FR[p.slug]) p.fr = window.PROJECTS_FR[p.slug]; });

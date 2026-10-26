@@ -7,7 +7,17 @@
   const root = document.getElementById('project-root');
   if (i < 0) { location.replace('projects.html'); return; }
 
-  const p = list[i], next = list[(i + 1) % list.length];
+  // Langue (i18n.js) : on applique le champ fr:{…} de projects-data.js
+  const LANG = (window.TV && window.TV.lang) || 'en';
+  const loc = q => {
+    const t = LANG === 'fr' && q.fr;
+    if (!t) return q;
+    return { ...q, ...t, media: q.media && t.media ? q.media.map((m, k) => ({ ...m, ...(t.media[k] || {}) })) : q.media };
+  };
+  const UI = LANG === 'fr' ? { overview: 'APERÇU', back: 'RETOUR AUX PROJETS', next: 'SUIVANT :' }
+                           : { overview: 'OVERVIEW', back: 'BACK TO PROJECTS', next: 'NEXT:' };
+  const touch = matchMedia('(hover:none)').matches;
+  const p = loc(list[i]), next = loc(list[(i + 1) % list.length]);
   const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 const rich = s => esc(s).replace(/\[([^\]]+)\]\(((?:https?:\/\/|\/|\.\/|\.\.\/|#)[^)\s]+|[\w-]+\.html(?:#[\w-]+)?)\)/g, (m, t, u) => {
   const ext = /^https?:/.test(u);
@@ -29,13 +39,6 @@ const rich = s => esc(s).replace(/\[([^\]]+)\]\(((?:https?:\/\/|\/|\.\/|\.\.\/|#
     image:  o => wrap('b-image', `<div class="pj-cell" ${ratio(o.ratio)}>${img(o, gone)}</div>`, o.caption),
     pair:   o => wrap('b-pair',  `<div class="pj-cols c2">${o.images.map(x => `<div class="pj-cell" ${ratio(x.ratio || o.ratio || '4/5')}>${img(x, gone)}</div>`).join('')}</div>`, o.caption),
   triple: o => wrap('b-triple', `<div class="pj-cols c3" style="${o.columns ? `grid-template-columns:${esc(o.columns)};` : ''}${o.height ? `grid-auto-rows:${esc(o.height)};` : ''}">${o.images.slice(0, 3).map(x => `<div class="pj-cell" ${o.height ? '' : ratio(x.ratio || o.ratio || '4/5')}>${img(x, gone)}</div>`).join('')}</div>`, o.caption),    videos: o => wrap('b-videos', `<div class="pj-flex">${o.videos.map(v => { const r = v.ratio || o.ratio || '9/16'; return `<div class="pj-cell" style="flex:${num(r)} 1 0;aspect-ratio:${esc(r)}"><video ${(v.controls || o.controls) ? 'controls' : 'autoplay muted loop'} playsinline preload="metadata" ${v.poster ? `poster="${path(v.poster)}"` : ''}><source src="${path(v.src)}"></video></div>`; }).join('')}</div>`, o.caption),
-    section: o => {
-  const isVideo = /\.(mp4|webm)(\?.*)?$/i.test(o.src);
-  const visual = isVideo
-    ? `<video ${o.controls ? 'controls' : 'autoplay muted loop'} playsinline preload="metadata" ${o.poster ? `poster="${path(o.poster)}"` : ''}><source src="${path(o.src)}"></video>`
-    : img({ src:o.src, alt:o.alt || o.title }, gone);
-  return wrap('b-section', `<h2 class="pj-sub">${esc(o.title)}</h2>${o.text ? `<p class="pj-subtext">${rich(o.text)}</p>` : ''}<div class="pj-cell" ${ratio(o.ratio || '4/3')}>${visual}</div>`, o.caption);
-},
     audio: o => wrap('b-audio', `<div class="pj-audio">${o.title ? `<p class="pj-audio-title">${esc(o.title)}</p>` : ''}<audio controls preload="none" src="${path(o.src)}" onerror="this.closest('figure').remove()"></audio></div>`, o.caption),
     grid:   o => wrap('b-grid',  `<div class="pj-cols c${Math.min(o.images.length,3) >= 3 ? 3 : 2}">${o.images.map(x => `<div class="pj-cell" ${ratio(x.ratio || o.ratio || '1/1')}>${img(x, gone)}</div>`).join('')}</div>`, o.caption),
     section: o => {
@@ -47,7 +50,7 @@ const rich = s => esc(s).replace(/\[([^\]]+)\]\(((?:https?:\/\/|\/|\.\/|\.\.\/|#
   return wrap('b-section', `${o.label ? `<p class="pj-label">${esc(o.label)}</p>` : ''}<h2 class="pj-sub">${esc(o.title)}</h2>${ps}<div class="pj-cell" ${ratio(o.ratio || '4/3')}>${visual}</div>`, o.caption);
 },
     video:  o => wrap('b-video', `<div class="pj-cell" ${ratio(o.ratio || '16/9')}><video ${o.controls ? 'controls' : 'autoplay muted loop'} playsinline preload="metadata" ${o.poster ? `poster="${path(o.poster)}"` : ''}><source src="${path(o.src)}"></video></div>`, o.caption),
-    bode: o => { bodes.push(o.options || {}); return wrap('b-bode', `<div class="pj-cell" data-bode="${bodes.length - 1}" ${ratio(o.ratio || '16/10')}></div>`, o.caption); },
+    bode: o => { bodes.push({ ...(o.options || {}), lang: LANG }); return wrap('b-bode', `<div class="pj-cell" data-bode="${bodes.length - 1}" ${ratio(o.ratio || '16/10')}></div>`, (touch && o.captionTouch) || o.caption); },
     embed:  o => wrap('b-embed', `<div class="pj-cell" style="${o.height ? `height:${+o.height}px` : `aspect-ratio:${esc(o.ratio || '16/9')}`}"><iframe src="${esc(o.src)}" loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="${esc(o.alt || p.title)}"></iframe></div>`, o.caption),
     animation: o => wrap('b-anim', `<div class="pj-cell" ${ratio(o.ratio || '1/1')}><canvas data-anim="${esc(o.name)}"></canvas></div>`, o.caption),
     text:   o => `<p class="pj-note reveal">${esc(o.text)}</p>`
@@ -68,7 +71,7 @@ const wide = p.hero ? `<section class="pj-hero reveal${p.hero.position === 'bott
   <section class="pj${atTop ? ' has-hero' : ''}">
     <div class="pj-text${longText ? ' long' : ''}">
       <div>
-        <p class="eyebrow reveal">OVERVIEW · ${esc(p.category.toUpperCase())}</p>
+        <p class="eyebrow reveal">${UI.overview} · ${esc(p.category.toUpperCase())}</p>
         <h1 class="pj-title reveal">${esc(p.title)}</h1>
         ${paras.map(t => `<p class="pj-overview reveal">${rich(t)}</p>`).join('')}
       </div>
@@ -78,8 +81,8 @@ const wide = p.hero ? `<section class="pj-hero reveal${p.hero.position === 'bott
   </section>
   ${!atTop ? wide : ''}
   <section class="pj-nav">
-    <a class="pj-back reveal" href="projects.html"><span class="arrow">←</span> BACK TO PROJECTS</a>
-    <a class="pj-next reveal" href="project.html#${next.slug}">NEXT: ${esc(next.title.toUpperCase())} <span class="arrow">→</span></a>
+    <a class="pj-back reveal" href="projects.html"><span class="arrow">←</span> ${UI.back}</a>
+    <a class="pj-next reveal" href="project.html#${next.slug}">${UI.next} ${esc(next.title.toUpperCase())} <span class="arrow">→</span></a>
   </section>`;
 
   // Vidéo dont le fichier est absent : on retire le bloc
@@ -110,4 +113,5 @@ const wide = p.hero ? `<section class="pj-hero reveal${p.hero.position === 'bott
   });
 
   window.addEventListener('hashchange', () => { location.reload(); window.scrollTo(0,0); });
+  window.addEventListener('tv:lang', () => location.reload());   // changement de langue : on reconstruit la page
 })();

@@ -8,15 +8,16 @@
   // Menu mobile
   const burger = document.querySelector('.burger');
   const nav = document.querySelector('.nav');
-  burger?.addEventListener('click', () => {
-    const open = burger.getAttribute('aria-expanded') === 'true';
-    burger.setAttribute('aria-expanded', String(!open));
-    nav.classList.toggle('open', !open);
-    document.body.style.overflow = open ? '' : 'hidden';
-  });
-  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    burger?.setAttribute('aria-expanded','false'); nav.classList.remove('open'); document.body.style.overflow='';
-  }));
+  const setMenu = open => {
+    burger?.setAttribute('aria-expanded', String(open));
+    nav?.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  burger?.addEventListener('click', () => setMenu(burger.getAttribute('aria-expanded') !== 'true'));
+  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (!a.closest('.nav-lang')) setMenu(false); }));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  matchMedia('(min-width:641px)').addEventListener?.('change', e => { if (e.matches) setMenu(false); });
 
   // Apparition au scroll
   const io = new IntersectionObserver((entries) => {
@@ -83,7 +84,15 @@
     new ResizeObserver(resize).observe(wave);
 
     // Vraie forme d'onde : on décode le fichier et on garde les crêtes
-    fetch(player.dataset.src).then(r => { if (!r.ok) throw 0; return r.arrayBuffer(); })
+    // On ne décode la forme d'onde que si le fichier reste raisonnable : télécharger puis décoder un WAV entier
+    // (plusieurs dizaines de Mo, décodés en centaines de Mo de flottants) fait planter les navigateurs de téléphone.
+    const lite = navigator.connection?.saveData || matchMedia('(pointer:coarse)').matches;
+    const MAX_BYTES = lite ? 12e6 : 40e6;
+    fetch(player.dataset.src).then(r => {
+        if (!r.ok) throw 0;
+        if ((+r.headers.get('content-length') || 0) > MAX_BYTES) { r.body?.cancel?.(); throw 0; }
+        return r.arrayBuffer();
+      })
       .then(buf => { const ac = new (window.AudioContext || window.webkitAudioContext)(); return ac.decodeAudioData(buf).finally(() => ac.close && ac.close()); })
       .then(ab => {
         const ch = ab.getChannelData(0), n = 400, size = Math.floor(ch.length / n), out = [];
@@ -132,7 +141,7 @@
 
   // Formulaire : retour visuel à l'envoi
   document.querySelector('.cf-form')?.addEventListener('submit', e => {
-    const b = e.target.querySelector('button'); b.textContent = 'SENT ✓';
+    const b = e.target.querySelector('button'); b.textContent = window.TV ? TV.t('SENT ✓') : 'SENT ✓';
   });
 
   // Bandeaux défilants : remplace les <img> du logo par un <span> colorable via --tk-color
@@ -203,10 +212,10 @@ document.querySelectorAll('.ticker-track').forEach(track => {
       row.addEventListener('pointermove', e => {       // glisser = faire défiler le morceau
         if (!down) return;
         if (!moved && Math.abs(e.clientX - down.x) > 6) { moved = true; row.setPointerCapture(down.id); }
-        if (moved) { seek(t, f(e)); if (audio.paused) start(); }
+        if (moved) seek(t, f(e));
       });
-      const up = () => { down = null; };
-      row.addEventListener('pointerup', up); row.addEventListener('pointercancel', up);
+      const up = () => { if (down && moved && audio.paused) start(); down = null; };
+      row.addEventListener('pointerup', up); row.addEventListener('pointercancel', () => { down = null; });
       row.addEventListener('click', e => {             // clic = aller à cet endroit et lire
         if (e.target.closest('.track-play')) return;
         if (moved) { moved = false; return; }

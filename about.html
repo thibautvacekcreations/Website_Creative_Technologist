@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#140c0a">
 <title>About — Thibaut Vacek</title>
 <meta name="description" content="Thibaut Vacek — creative technologist, musician and scientist.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +14,12 @@
 <body class="page-about">
 <header class="site-header">
   <a class="brand" href="index.html"><img class="spiral" src="pictures/LOGO_ref.png" alt=""><span>THIBAUT VACEK</span></a>
-  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
-  <nav class="nav"><a href="index.html">HOME</a><a href="projects.html">PROJECTS</a><a href="music.html">MUSIC</a><a href="about.html" class="active">ABOUT</a></nav>
+  <button class="burger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav" id="site-nav"><a href="index.html">HOME</a><a href="projects.html">PROJECTS</a><a href="music.html">MUSIC</a><a href="about.html" class="active">ABOUT</a></nav>
 </header>
 <main>
 <section class="about-hero">
-  <div class="about-photo"><img src="pictures/ABOUT/signal_about.png"></div>
+  <div class="about-photo"><img src="pictures/ABOUT/signal_about.png" alt="Thibaut Vacek"></div>
   <div class="about-text">
     <h1 class="reveal"><span class="orange">Hi, I’m Thibaut,</span> </h1>
     <p class="about-lead reveal">A musician, creative technologist and scientist exploring the intersection of <span class="gold_brown">sound, technology, and live performance</span>.</p>
@@ -64,6 +65,7 @@
   </div>
 </section>
 <div class="gold-stripe"></div>
+</main>
 <footer class="site-footer">
   <div class="footer-cta reveal">
     <a class="btn btn-glow" href="mailto:thibaut.vacek.creations@gmail.com">CONTACT</a>
@@ -79,8 +81,8 @@
   <div class="footer-name"><small>2026</small><span class="solid">THIBAUT</span><span class="outline">VACEK</span></div>
   <img class="footer-watermark" src="pictures/LOGO_ref.png" alt="">
 </footer>
-</main>
 
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

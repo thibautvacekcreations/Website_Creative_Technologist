@@ -43,6 +43,8 @@
 
   function init(el, userOpts) {
     const o = Object.assign({}, DEFAULTS, userOpts || {});
+    const fr = String(o.lang || '').slice(0, 2) === 'fr';              // textes du graphique en français
+    const nf = v => fr ? String(v).replace('.', ',') : String(v);        // virgule décimale
     const reduced = root.matchMedia && root.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) { o.trail = 1; o.smoothing = 1; o.autoplay = false; }
 
@@ -69,6 +71,7 @@
     function resize() {
       const r = el.getBoundingClientRect();
       W = Math.max(200, r.width); H = Math.max(140, r.height);
+      m.l = W < 440 ? 40 : 52; m.r = W < 440 ? 10 : 18;                  // marges réduites sur petit écran
       dpr = Math.min(root.devicePixelRatio || 1, 2);
       canvas.width = W * dpr; canvas.height = H * dpr;
       bg.width = W * dpr; bg.height = H * dpr;
@@ -194,9 +197,9 @@
       const fTxt = freqs[peak] >= 1000 ? (freqs[peak] / 1000).toFixed(2) + ' kHz' : Math.round(freqs[peak]) + ' Hz';
       ctx.font = '600 13px system-ui, sans-serif';
       ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillStyle = `hsl(${hue} 85% 70%)`;
-      ctx.fillText(`R = ${rTxt} kΩ`, W - m.r - 10, m.t + 10);
+      ctx.fillText(`R = ${nf(rTxt)} kΩ`, W - m.r - 10, m.t + 10);
       ctx.font = '12px system-ui, sans-serif'; ctx.fillStyle = o.text;
-      ctx.fillText(`pic ${fTxt} · ${db[peak].toFixed(1)} dB`, W - m.r - 10, m.t + 29);
+      ctx.fillText(`${fr ? 'pic' : 'peak'} ${nf(fTxt)} · ${nf(db[peak].toFixed(1))} dB`, W - m.r - 10, m.t + 29);
     }
 
     resize();
