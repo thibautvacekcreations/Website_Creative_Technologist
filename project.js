@@ -112,6 +112,26 @@ const wide = p.hero ? `<section class="pj-hero reveal${p.hero.position === 'bott
     raf = requestAnimationFrame(loop);
   });
 
+  // Titre : la taille s'adapte à la largeur de sa colonne (le plus long mot doit tenir sans être coupé).
+  // On mesure dans le DOM avec la vraie police ; on recalcule dès qu'elle est chargée.
+  const fitTitle = () => {
+    const h = root.querySelector('.pj-title');
+    if (!h || !h.clientWidth) return;
+    const MAX = innerWidth < 900 ? 48 : 110, MIN = 22;           // px : tailles min / max
+    const probe = h.cloneNode(false);
+    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;width:auto;margin:0;font-size:100px';
+    h.parentNode.appendChild(probe);
+    let widest = 1;
+    h.textContent.split(/\s+/).filter(Boolean).forEach(w => { probe.textContent = w; widest = Math.max(widest, probe.getBoundingClientRect().width); });
+    probe.remove();
+    h.style.fontSize = Math.max(MIN, Math.min(MAX, h.clientWidth / widest * 100 * .97)) + 'px';
+  };
+  fitTitle();
+  document.fonts?.load('1em "Revive80 Wide"').then(fitTitle, () => {});
+  document.fonts?.ready.then(fitTitle);
+  document.fonts?.addEventListener?.('loadingdone', fitTitle);
+  new ResizeObserver(fitTitle).observe(root.querySelector('.pj-text') || root);
+
   window.addEventListener('hashchange', () => { location.reload(); window.scrollTo(0,0); });
   window.addEventListener('tv:lang', () => location.reload());   // changement de langue : on reconstruit la page
 })();
