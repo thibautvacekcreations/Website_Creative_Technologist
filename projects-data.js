@@ -52,7 +52,7 @@ window.PROJECTS = [
       ["Tools", "Ableton Live, guitar, microphones"]
     ],
     media: [
-      { type: "image", src: "PROJECTS/capter_leclosion_cover.jpg", ratio: "4/5" },
+      { type: "image", src: "PROJECTS/capter_leclosion_cover.jpg", ratio: "1/1" },
       {
         type: "pair",
         images: [
@@ -97,7 +97,7 @@ window.PROJECTS = [
     
     info:[["Role","Data engineer"],["Date","April 2022 - Sept 2022"],["Lab","Laboratoire Traitement et Apprentissage, Palaiseau"],["Tools","Tensorflow, Docker, Python"]],
     media:[
-      { type:"image", src:"PROJECTS/filter_diagtrunet.png", caption:"Network architecture." },
+      { type:"image", src:"PROJECTS/filter_diagtrunet.png"},
       { type:"animation", name:"spectrogram", ratio:"16/9" }
     ] },
 
@@ -110,7 +110,7 @@ window.PROJECTS = [
     media:[
       { type:"pair",
         images: [
-          { src: "PROJECTS/cover_desordres.png" , ratio: "1/1"},
+          { src: "PROJECTS/cover_desordres.webp" , ratio: "1/1"},
           { src: "PROJECTS/Backcoverdesordre.png" , ratio: "1/1" }
         ] },
       { type:"embed", src:"https://open.spotify.com/intl-fr/embed/track/4jksxP3QEtcdT7mcf6Yfij?si=7c0abdd2df8447a5", height:152 },
