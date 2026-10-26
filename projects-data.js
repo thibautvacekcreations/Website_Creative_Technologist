@@ -5,13 +5,13 @@
      slug, title, category, overview, info:[[label, valeur], ...]
      accent   (facultatif) couleur d'accent de la page, ex. "#7fb2ff"
      media    (facultatif) liste de BLOCS affichés dans la colonne de droite.
-              Sans "media", la page affiche pictures/<slug>.jpg, -2.jpg, -3.jpg.
+              Sans "media", la page affiche pictures/<slug>.webp, -2.webp, -3.webp.
 
    Types de blocs disponibles :
-     { type:"image",  src:"plasma.jpg", alt:"…", caption:"…", ratio:"4/5" }
-     { type:"pair",   images:[{src:"a.jpg"},{src:"b.jpg"}], caption:"…" }   2 images côte à côte
-     { type:"grid",   images:[{src:"a.jpg"},{src:"b.jpg"},{src:"c.jpg"}] }   3 images ou plus
-     { type:"video",  src:"clip.mp4", poster:"clip.jpg", ratio:"16/9" }     boucle muette (ajoute controls:true pour le son)
+     { type:"image",  src:"plasma.webp", alt:"…", caption:"…", ratio:"4/5" }
+     { type:"pair",   images:[{src:"a.webp"},{src:"b.webp"}], caption:"…" }   2 images côte à côte
+     { type:"grid",   images:[{src:"a.webp"},{src:"b.webp"},{src:"c.webp"}] }   3 images ou plus
+     { type:"video",  src:"clip.mp4", poster:"clip.webp", ratio:"16/9" }     boucle muette (ajoute controls:true pour le son)
      { type:"embed",  src:"https://www.youtube.com/embed/ID", ratio:"16/9" }  YouTube, Vimeo, Spotify, SoundCloud…
      { type:"animation", name:"plasma", ratio:"1/1" }                        animation canvas (voir project-animations.js)
      { type:"text",   text:"Un paragraphe entre deux visuels." }
@@ -28,10 +28,10 @@ window.PROJECTS = [
   "Shot as the sun sets over the sea, the film deliberately blurs the line between music performance and landscape. The changing light, open horizon and surrounding cliffs become part of the visual and emotional composition — creating a live piece where the environment is not simply a backdrop, but an integral part of the performance."
   ],
     info:[["Role","Artist, producer"],["Date","2026"],["Format","Live video, audio"],["Tools","Ableton Live, modular synth"]],
-  hero:{ video:"PROJECTS/extrait_website_livess_comp.mp4", poster:"PROJECTS/Live_plage_mic.png" },
+  hero:{ video:"PROJECTS/extrait_website_livess_comp.mp4", poster:"PROJECTS/Live_plage_mic.webp" },
   media:[
     { type:"embed", src:"https://www.youtube.com/embed/JqRjSROH5xQ", ratio:"16/9"},
-    { type:"image",  src:"PROJECTS/bateau_livesess.png", ratio:"9/3" }
+    { type:"image",  src:"PROJECTS/bateau_livesess.webp", ratio:"9/3" }
   ] },
 
   
@@ -52,12 +52,12 @@ window.PROJECTS = [
       ["Tools", "Ableton Live, guitar, microphones"]
     ],
     media: [
-      { type: "image", src: "PROJECTS/capter_leclosion_cover.jpg", ratio: "1/1" },
+      { type: "image", src: "PROJECTS/capter_leclosion_cover.webp", ratio: "1/1" },
       {
         type: "pair",
         images: [
-          { src: "capter-l-eclosion-2.jpg" },
-          { src: "capter-l-eclosion-3.jpg" }
+          { src: "capter-l-eclosion-2.webp" },
+          { src: "capter-l-eclosion-3.webp" }
         ]
       },
       { type: "embed", src: "https://open.spotify.com/intl-fr/embed/album/3vvB6nWjJU7rDXYnzGL4Ar?si=wL1dRHN2RWS2vccHLHoKgQ", height: 352 }
@@ -71,7 +71,7 @@ window.PROJECTS = [
     { type: "section", title:"Duo-Created EP", text:"Neon Ultra is a 4-track EP created under the group name Neo Amber, in collaboration with artist Lyes Kaci. This project explores a mysterious universe, with visuals featuring green and blue neon lights symbolizing the duality between the two members of the duo. The compositions strike a balance between the creative ideas of both artists, reflecting a harmonious collaboration. The songs delve into themes of self-discovery and contemplation, focusing on the process of creating art and music.", src:"PROJECTS/Loop_neoamber.mp4", ratio:"1/1" },
     { type: "section", title:"Producer & Arranger", text:["In 2023/2024, I collaborated with an emerging pop singer named Lisa Stervinou, which gave me valuable insight into a producer's role. My responsibilities were diverse. During live performances, I played guitar and managed the backtracks. In the studio and during rehearsals, I contributed to the songwriting and artistic direction of her project. This included advising on lyrics, suggesting chord progressions and melodies, offering production ideas, and selecting the right sounds. I also re-arranged tracks for live performances and provided input on the visual and sonic direction of the project.",
       "This collaboration culminated in the release of three studio tracks, now available on streaming platforms, and four live concerts in Paris. I thoroughly enjoy the role of artistic direction, finding that it comes naturally to me. Deciding what fits within a broader artistic vision feels intuitive, and I’m confident in making these creative choices while still infusing my own style and ideas into the process."],  
-      src:"PROJECTS/lisa_tibo.jpeg", ratio:"4/3" },
+      src:"PROJECTS/lisa_tibo.webp", ratio:"4/3" },
   ]},
 
   { slug:"plasma", title:"Plasma", category:"Scientific project", accent:"#ff9a4d",
@@ -84,7 +84,7 @@ window.PROJECTS = [
     info:[["Role","Plasma physicist"],["Date","March 2024 - October 2024"],["Lab","Laboratoire de Physique des Plasmas, Paris"],["Tools","Python, high-voltage generator, nanosecond camera"]],
     hero:{ video:"PROJECTS/video_plasmajet.mp4", ratio:"5/1", position:"top" },
     media:[
-      { type:"image", src:"PROJECTS/plasma_pic.jpeg"}
+      { type:"image", src:"PROJECTS/plasma_pic.webp"}
     ] },
 
   { slug:"audio-source-separation", title:"Audio Source Separation", category:"Signal processing", accent:"#9ab3ff",
@@ -97,7 +97,7 @@ window.PROJECTS = [
     
     info:[["Role","Data engineer"],["Date","April 2022 - Sept 2022"],["Lab","Laboratoire Traitement et Apprentissage, Palaiseau"],["Tools","Tensorflow, Docker, Python"]],
     media:[
-      { type:"image", src:"PROJECTS/filter_diagtrunet.png"},
+      { type:"image", src:"PROJECTS/filter_diagtrunet.webp"},
       { type:"animation", name:"spectrogram", ratio:"16/9" }
     ] },
 
@@ -111,11 +111,11 @@ window.PROJECTS = [
       { type:"pair",
         images: [
           { src: "PROJECTS/cover_desordres.webp" , ratio: "1/1"},
-          { src: "PROJECTS/Backcoverdesordre.png" , ratio: "1/1" }
+          { src: "PROJECTS/Backcoverdesordre.webp" , ratio: "1/1" }
         ] },
       { type:"embed", src:"https://open.spotify.com/intl-fr/embed/track/4jksxP3QEtcdT7mcf6Yfij?si=7c0abdd2df8447a5", height:152 },
       { type:"triple", columns:"2fr 2fr 1fr", height:"180px",
-  images:[{src:"PROJECTS/SLS.jpg"},{src:"PROJECTS/Screens.png"},{src:"PROJECTS/FDC.png"}] }  
+  images:[{src:"PROJECTS/SLS.webp"},{src:"PROJECTS/Screens.webp"},{src:"PROJECTS/FDC.webp"}] }  
 
     ] },
 
@@ -129,7 +129,7 @@ window.PROJECTS = [
     hero:{ animation:"plasma", ratio:"5/1", position:"top" },
 
     media:[
-      { type:"image", src:"PROJECTS/EM_impulse.jpeg", ratio:"16/9" },
+      { type:"image", src:"PROJECTS/EM_impulse.webp", ratio:"16/9" },
       { type:"videos",
   videos:[
     { src:"PROJECTS/Shot_CELIA.mp4", ratio:"1/1" },
@@ -149,7 +149,7 @@ window.PROJECTS = [
     caption:"Move your cursor across the diagram to turn the pedal: the resonance sweeps with the potentiometer.",
     captionTouch:"Drag your finger across the diagram to turn the pedal: the resonance sweeps with the potentiometer.",
     options:{ bg:"#170d0a" , } },
-  { type:"pair",  images:[{src:"PROJECTS/schema_wahwah.jpg"},{src:"PROJECTS/pcbfinal.png"}], ratio:"5/3"}
+  { type:"pair",  images:[{src:"PROJECTS/schema_wahwah.webp"},{src:"PROJECTS/pcbfinal.webp"}], ratio:"5/3"}
 ]},
 
   { slug:"early-works", title:"Early Works", category:"Archive",
@@ -162,8 +162,8 @@ window.PROJECTS = [
     ],
     info:[["Role","Artist"],["Date","2013-2022"],["Format","Mixed media"],["Tools","Logic Pro, Ableton Live, iMovie"]],
     media:[
-      { type:"image", src:"PROJECTS/early_works.jpg" },
-      { type:"pair",  images:[{src:"pictures/PROJECTS/tyler_cover.png"},{src:"pictures/PROJECTS/kaci_vacek.jpeg"}], ratio:"5/3" }
+      { type:"image", src:"PROJECTS/early_works.webp" },
+      { type:"pair",  images:[{src:"pictures/PROJECTS/tyler_cover.webp"},{src:"pictures/PROJECTS/kaci_vacek.webp"}], ratio:"5/3" }
     ] },
 
   { slug:"fm-plugin-coding", title:"FM Plugin Coding", category:"Code & sound",
@@ -172,7 +172,7 @@ window.PROJECTS = [
     ],
       info:[["Role","Design, development"],["Date","2026"],["Format","Audio plugin"],["Tools","Max for Live"]],
     media:[
-      { type:"image", src:"pictures/PROJECTS/plugin_FM.png", ratio:"16/3" },
+      { type:"image", src:"pictures/PROJECTS/plugin_FM.webp", ratio:"16/3" },
     ] }
 ];
 

@@ -582,7 +582,7 @@ main{display:block}
   --st-opacity:.15;                 /* transparence de la photo : 0 = invisible, 1 = pleine */
   --st-size:cover;                  /* taille : cover, 120%, 60%, auto 90%... */
   --st-x:200px;                       /* position horizontale */
-  --st-y:-200%;                       /* position verticale */
+  --st-y:-0%;                       /* position verticale */
 }
 .studies::before{
   content:"";
